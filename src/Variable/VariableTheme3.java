@@ -1,5 +1,5 @@
 package Variable;
-
+// Вывод на консоль слова JAVA
 public class VariableTheme3 {
     public static void main(String[] args) {
         String a = "a";
