@@ -4,8 +4,8 @@ public class VariableTheme4 {
     public static void main(String[] args) {
         byte a = 127; // исходный
         byte a1, a2;
-        a1 = (byte) (a + 1); // инкрементированный
-        a2 = (byte) (a - 1); // декрементированный
+        a1 = (byte) (a+1); // инкрементированный
+        a2 = (byte) (a-1); // декрементированный
         short b = 32_767;
         short b1, b2;
         b1 = (short) (b + 1); // инкрементированный
