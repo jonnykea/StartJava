@@ -11,15 +11,15 @@ public class VariableTheme10 {
         int secs = 86399;
         long hour = secs / 3600;
         int min = (secs / 60) % 60;
-        int sec = secs  % 60;
+        int sec = secs % 60;
 
         // int min = (secs - (hour*3600)) % 60;
         // int sec = (secs - (min*60)) % 60;
 
-        System.out.println(secs+
-                       "\n"+" часы    "+hour+
-                       "\n"+" минуты  "+min+
-                       "\n"+" секунды "+sec);
+        System.out.println(secs +
+                "\n" + " часы    " + hour +
+                "\n" + " минуты  " + min +
+                "\n" + " секунды " + sec);
         System.out.printf("%02d:%02d:%02d", hour, min, sec);
 
     }
