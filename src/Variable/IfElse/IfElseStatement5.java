@@ -1,4 +1,5 @@
 package Variable.IfElse;
+
 //Определение буквы, числа или символа по их коду
 //создайте переменную типа char
 //присвойте ей значение ‘\u0057’
@@ -11,8 +12,14 @@ package Variable.IfElse;
 public class IfElseStatement5 {
     public static void main(String[] args) {
         char A = '\u0057';
-        String m = "W";
-        System.out.println("\u0057");
-
+        if (A >= 0 && A < 48 && A >= 58 && A < 65 && A >= 123 && A <= 127) {
+            System.out.println(A + " переменная А является не буквой и не число");
+        } else if (A >= 48 && A < 58) {
+            System.out.println(A + " является числом");
+        } else if (A >= 65 && A < 91) {
+            System.out.println(A + " является заглавной буквой");
+        } else if (A >= 61 && A < 123) {
+            System.out.println(A + " является маленькой буквой");
+        }
     }
 }
