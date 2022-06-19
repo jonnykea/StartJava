@@ -1,4 +1,4 @@
-package Variable;
+package Lesson_1.Variable;
 
 // Вывод на консоль слова JAVA
 //Отобразите в консоли слово JAVA, как в примере ниже:

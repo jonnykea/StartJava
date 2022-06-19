@@ -1,4 +1,4 @@
-package Variable;
+package Lesson_1.Variable;
 
 
 //Преобразование секунд

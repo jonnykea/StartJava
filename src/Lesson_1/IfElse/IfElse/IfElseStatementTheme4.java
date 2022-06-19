@@ -1,10 +1,10 @@
-package Variable.IfElse;
+package Lesson_1.IfElse.IfElse;
 //Поиск одинаковых цифр в числах
 //создайте две переменные, присвоив им два трехзначных целых числа
 //найдите в них одинаковые цифры, стоящие в одном и том же разряде
 //отобразите результат в формате:
 //в числах N и M одинаковые цифры A, B, C стоят в X, Y, Z разрядах
-public class IfElseStatement4 {
+public class IfElseStatementTheme4 {
     public static void main(String[] args) {
         String N = "111";
         char A = N.charAt(0);

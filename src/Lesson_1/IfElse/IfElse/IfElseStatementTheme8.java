@@ -1,4 +1,4 @@
-package Variable.IfElse;
+package Lesson_1.IfElse.IfElse;
 //продавеу снимает помещение за 5000 руб в месяц
 //в среднем он продает товара на 13000 руб
 //при этом его себестоимость равна 9000 руб
@@ -8,7 +8,7 @@ package Variable.IfElse;
 //   прибыль за год + 3000 руб
 //если прибыль положительная, то рядом с чмслом необходимо отображать+
 
-public class IfElseStatement8 {
+public class IfElseStatementTheme8 {
     public static void main(String[] args) {
         int SpentLent = 5000;
         int proceed = 13000 - 9000; // выручка

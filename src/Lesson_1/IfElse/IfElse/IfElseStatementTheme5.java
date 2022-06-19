@@ -1,4 +1,4 @@
-package Variable.IfElse;
+package Lesson_1.IfElse.IfElse;
 
 //Определение буквы, числа или символа по их коду
 //создайте переменную типа char
@@ -9,7 +9,7 @@ package Variable.IfElse;
 //маленькая (большая) буква
 //это число
 //не буква и не число
-public class IfElseStatement5 {
+public class IfElseStatementTheme5 {
     public static void main(String[] args) {
         char A = '\u0057';
         if (A >= 0 && A < 48 && A >= 58 && A < 65 && A >= 123 && A <= 127) {

@@ -1,4 +1,4 @@
-package Variable.IfElse;
+package Lesson_1.IfElse.IfElse;
 //Определение суммы вклада и начисленных банком %
 //сумма вклада равна 300_000 руб.
 //если она:
@@ -9,7 +9,7 @@ package Variable.IfElse;
 //сумму вклада
 //начисленный %
 //итоговую сумму с %
-public class IfElseStatement6 {
+public class IfElseStatementTheme6 {
     public static void main(String[] args) {
         int sum = 300_000;
 

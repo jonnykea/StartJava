@@ -1,4 +1,4 @@
-package Variable.IfElse;
+package Lesson_1.IfElse.IfElse;
 //Подсчет количества банкнот
 //из банкомата вам необходимо снять 567 USD
 //подсчитайте, с помощью какого количества банкнот номиналом 1, 10, 100 банкомат может выдать необходимую сумму
@@ -10,7 +10,7 @@ package Variable.IfElse;
 //требуемое их количество
 //посчитанную исходную сумму
 
-public class IfElseStatement9 {
+public class IfElseStatementTheme9 {
     public static void main(String[] args) {
         int amount = 567;
         int hundred = amount / 100;

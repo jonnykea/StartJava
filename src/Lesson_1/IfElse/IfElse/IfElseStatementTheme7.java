@@ -1,4 +1,4 @@
-package Variable.IfElse;
+package Lesson_1.IfElse.IfElse;
 
 //Определение оценки по предметам
 //студент получил итоговые % по предметам:
@@ -13,7 +13,7 @@ package Variable.IfElse;
 //оценку и напротив предмет
 //средний балл оценок по предметам
 //средний % по предметам
-public class IfElseStatement7 {
+public class IfElseStatementTheme7 {
     public static void main(String[] args) {
         int history = 59;
         String h = "History";

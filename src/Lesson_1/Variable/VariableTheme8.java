@@ -1,4 +1,4 @@
-package Variable;
+package Lesson_1.Variable;
 
 //Вывод на консоль ASCII-арт Дюка
 //отобразите в консоли Java-талисман, используя символы из примера ниже:
