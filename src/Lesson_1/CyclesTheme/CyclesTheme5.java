@@ -7,29 +7,24 @@ package Lesson_1.CyclesTheme;
 
 public class CyclesTheme5 {
     public static void main(String[] args) {
-        boolean isEven = true;
+
         int onesCount = 0;
         // Counting how much ones in the number
-
-        // if rank is equal to 1 then inverting
-        isEven = !isEven;
-
-        int number = 3_141_591;
-        // Checking if ones number is even
-
+        String number = "3141591";
+        // Checking if one number is even
         int SumEven = 0;
         int SumOdd = 0;
         int i = 1;
-        while (i < number) {
-            if (i % 2 == 0) {
-                SumEven ++;
-            } else {
-                SumOdd ++;
+//        while (i <= number.length()) {
+            char n = number.charAt(i);
+            if (n == 1) {
+             onesCount++;
             }
-            i++;
+//            i++;
+//        }
+//            System.out.printf("число %d содержит количество единиц %d", number, onesCount);
+            System.out.println(onesCount);
+            System.out.print(n);
         }
-
-        String isEvenString = isEven ? "четное" : "нечетное";
-        System.out.printf("число %d содержит %s количество единиц", number, isEvenString);
     }
-}
+
