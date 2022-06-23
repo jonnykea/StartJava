@@ -7,24 +7,26 @@ package Lesson_1.CyclesTheme;
 
 public class CyclesTheme5 {
     public static void main(String[] args) {
-
+        String even = "";
         int onesCount = 0;
         // Counting how much ones in the number
         String number = "3141591";
         // Checking if one number is even
-        int SumEven = 0;
-        int SumOdd = 0;
-        int i = 1;
-//        while (i <= number.length()) {
+        int i = 0;
+        while (i <= 6) {
             char n = number.charAt(i);
-            if (n == 1) {
-             onesCount++;
+            if (n == '1') {
+                onesCount++;
             }
-//            i++;
-//        }
-//            System.out.printf("число %d содержит количество единиц %d", number, onesCount);
-            System.out.println(onesCount);
-            System.out.print(n);
+            i++;
+            if (onesCount % 2 == 0) {
+                even = "Четное";
+            } else {
+                even = "нечетное";
+            }
+            System.out.println(n);
         }
+        System.out.println("число " + number + " содержит количество '1' - " + onesCount + " - " + even);
     }
+}
 
