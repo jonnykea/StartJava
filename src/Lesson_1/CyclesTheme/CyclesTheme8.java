@@ -12,14 +12,16 @@ public class CyclesTheme8 {
         int length = word.length();
         int i = 0;
         while (i < (length / 2)) {
-
             if (word.charAt(i) != word.charAt(length - i - 1)) {
                 System.out.printf("число %s не является палиндромом", word);
+                break;
             } else {
                 i++;
             }
         }
-        System.out.printf("число %s является палиндромом", word);
+        if (i == (length / 2)) {
+            System.out.printf("число %s является палиндромом", word);
+        }
     }
 }
 
