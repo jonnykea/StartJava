@@ -1,4 +1,4 @@
-package Lesson_1.CyclesTheme;
+package Lesson_1.CyclesThemeAll;
 //Вывод чисел на консоль в несколько строк
 //        выведите с помощью for на консоль числа в полуинтервале [1, 24)
 //        шаг итерации 2

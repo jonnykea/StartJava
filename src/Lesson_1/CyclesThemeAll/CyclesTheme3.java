@@ -1,4 +1,4 @@
-package Lesson_1.CyclesTheme;
+package Lesson_1.CyclesThemeAll;
 //Вывод реверсивного числа и суммы его цифр
 //        дано число 1234
 //        в цикле while выделите каждую его цифру

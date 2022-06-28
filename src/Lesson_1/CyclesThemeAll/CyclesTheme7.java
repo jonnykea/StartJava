@@ -1,4 +1,4 @@
-package Lesson_1.CyclesTheme;
+package Lesson_1.CyclesThemeAll;
 //	      Отображение ASCII-символов
 //        ○	отобразите, используя for, данные столбцов Dec и Char (и названия столбцов) из таблицы
 //        ○	выводите на консоль:

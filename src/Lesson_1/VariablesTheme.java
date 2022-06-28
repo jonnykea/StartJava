@@ -1,120 +1,93 @@
 package Lesson_1;
 
-//Создание переменных и вывод их значений на консоль (это название задачи)
-//объявите переменные всех существующих в Java примитивных типов данных, присвоив им значения
-//в качестве значений используйте информацию о своем компьютере: количество ядер, частота процессора и тд.
-//выведите эти данные на консоль
+
 public class VariablesTheme {
     public static void main(String[] args) {
-        byte z = -5;
-        short x = -5555;
-        int q = 555555;
-        long v = 5555555;
-        float e = 55555555;
-        double f = 55555555;
-        char g = 55;
-        boolean h = true;
+        System.out.println("Задание №1 - Создание переменных и вывод их значений на консоль");
+        byte firstVariable = -5;
+        short secondVariable = -5555;
+        int thirdVariable = 555555;
+        long fourthVariable = 5555555;
+        float fifthVariable = 55555555;
+        double sixthVariable = 55555555;
+        char signVariable = '%';
+        boolean conditionVariable = true;
 
         System.out.println("simple variable:  " +
-                "\n " + z + " " + x + " " + q + " " + v + " " + e + " " + f + " " +
-                "\n other simple variable g, h, i " + "\n " + g + " , " + h + "\n ");
+                "\n " + fifthVariable + " " + secondVariable + " " + thirdVariable + " " + fourthVariable + " " + fifthVariable
+                + " " + sixthVariable + " " + "\n" + signVariable + " , " + conditionVariable);
+        System.out.println("\n ");
 
 
-// Расчет стоимости товара со скидкой
-//товар X стоит 100 руб, а товар Y — 200 руб.
-//вместе на них действует скидка 11%
-//отобразите в консоли:
-//сумму скидки
-//общую стоимость товаров со скидкой
-        int x1 = 100; //стоимость первого товара
-        int y1 = 200;//стоимость второго товара
-        int z1 = ((x1 + y1) / 100) * 11; //скидка на товары 11 %
-        int t = (x1 + y1) - z1; //общая стоимость товара с учетом скидки
-
-        System.out.println("сумма скидки - " + z1 + "\n" + "общая стоимость товара c учетом скидки - " + t + "\n");
+        System.out.println("Задание №2 - Расчет стоимости товара со скидкой");
+        //стоимость первого товара
+        int valueFirstGoods = 100;
+        //стоимость второго товара
+        int valueSecondGoods = 200;
+        //скидка
+        int discount = ((valueFirstGoods + valueSecondGoods) / 100) * 11; //скидка на товары 11 %
+        int totalValue = (valueFirstGoods + valueSecondGoods) - discount; //общая стоимость товара с учетом скидки
+        System.out.println("сумма скидки - " + discount + "\n" + "общая стоимость товара c учетом скидки - " + totalValue);
+        System.out.println("\n ");
 
 
-//        Вывод на консоль слова JAVA
-//Отобразите в консоли слово JAVA, как в примере ниже:
-//   J    a  v     v  a
-//   J   a a  v   v  a a
-//J  J  aaaaa  V V  aaaaa
-// JJ  a     a  V  a     a
-
-        String a = "a";
-        String b = "v";
-        String c = "V";
-        String d = "J";
-        System.out.println("    " + d + "    " + a + "  " + b + "       " + b + "  " + a +
-                "\n" + "    " + d + "   " + a + " " + a + "  " + b + "     " + b + "  " + a + " " + a +
-                "\n" + " " + d + "  " + d + "  " + a + a + a + a + a + a + "  " + c + "  " + c + "  " + a + a + a + a + a +
-                "\n" + "  " + d + d + "   " + a + "      " + a + "  " + c + "  " + a + "       " + a +
+        System.out.println("Задание №3 - Вывод на консоль слова JAVA");
+        String smallA = "a";
+        String smallV = "v";
+        String bigV = "V";
+        String bigJ = "J";
+        System.out.println("    " + bigJ + "    " + smallA + "  " + smallV + "       " + smallV + "  " + smallA +
+                "\n" + "    " + bigJ + "   " + smallA + " " + smallA + "  " + smallV + "     " + smallV + "  " + smallA + " " + smallA +
+                "\n" + " " + bigJ + "  " + bigJ + "  " + smallA + smallA + smallA + smallA + smallA + smallA + "  " + bigV + "  " + bigV + "  " + smallA + smallA + smallA + smallA + smallA +
+                "\n" + "  " + bigJ + bigJ + "   " + smallA + "      " + smallA + "  " + bigV + "  " + smallA + "       " + smallA +
                 "\n");
+        System.out.println("\n ");
 
 
-//        создайте переменные всех целых числовых типов
-//присвойте им самые большие числа, которые они могут хранить
-//инкрементируйте, а затем декрементируйте все значения на единицу
-//выводите данные на консоль для каждой переменной в следующей последовательности:
-//первоначальное значение
-//значение после инкремента
-//значение после декремента
-
-        byte a = 127; // исходный
-        byte a1, a2;
-        a1 = (byte) (a + 1); // инкрементированный
-        a2 = (byte) (a - 1); // декрементированный
-        short b = 32_767;
-        short b1, b2;
-        b1 = (short) (b + 1); // инкрементированный
-        b2 = (short) (b - 1); // декрементированный
-        int c = 2_147_483_647;
-        int c1, c2;
-        c1 = c + 1; // инкрементированный
-        c2 = c - 1; // декрементированный
-        long d = 9_223_372_036_854_775_807L;
-        long d1, d2;
-        d1 = d + 1; // инкрементированный
-        d2 = d - 1; // декрементированный
-        System.out.println("переменная a - тип byte " + "исходная = " + a + " инкрементированная = " + a1 + " декрементированная = " + a2);
-        System.out.println("переменная b - тип short " + "исходная = " + b + " инкрементированная = " + b1 + " декрементированная = " + b2);
-        System.out.println("переменная c - тип int " + "исходная = " + c + " инкрементированная = " + c1 + " декрементированная = " + c2);
-        System.out.println("переменная d - тип int " + "исходная = " + d + " инкрементированная = " + d1 + " декрементированная = " + d2 + "\n");
+        System.out.println("Задание №4 - Создание переменные всех целых числовых типов");
+        byte startVariableByte = 127;
+        byte incrementByte, decrementByte;
+        incrementByte = (byte) (startVariableByte + 1);
+        decrementByte = (byte) (startVariableByte - 1);
+        short startVariableShort = 32_767;
+        short incrementShort, decrementShort;
+        incrementShort = (short) (startVariableShort + 1);
+        decrementShort = (short) (startVariableShort - 1);
+        int startVariableInt = 2_147_483_647;
+        int incrementInt, decrementInt;
+        incrementInt = startVariableInt + 1;
+        decrementInt = startVariableInt - 1;
+        long startVariableLong = 9_223_372_036_854_775_807L;
+        long incrementLong, decrementLong;
+        incrementLong = startVariableLong + 1;
+        decrementLong = startVariableLong - 1;
+        System.out.println("переменная - тип byte " + "исходная = " + startVariableByte + " инкрементированная = " + incrementByte + " декрементированная = " + decrementByte);
+        System.out.println("переменная - тип short " + "исходная = " + startVariableShort + " инкрементированная = " + incrementShort + " декрементированная = " + decrementShort);
+        System.out.println("переменная - тип int " + "исходная = " + startVariableInt + " инкрементированная = " + incrementInt + " декрементированная = " + decrementInt);
+        System.out.println("переменная - тип long " + "исходная = " + startVariableLong + " инкрементированная = " + incrementLong + " декрементированная = " + decrementLong + "\n");
 
 
-//         Перестановка значений переменных
-//создайте две переменные типа float, присвоив им значения
-//поменяйте значения переменных местами разными способами:
-//с помощью третьей переменной
-//с помощью арифметических операций
-//с помощью побитовой операции ^
-//отобразите в консоли:
-//информацию о применяемом способе перестановки значений
-//исходные значения переменных
-//новые значения переменных
-
-        float a = 5f;
-        float b = 10f;
-        System.out.println("изначальные значения переменных a и b " + a + " " + b);
+        System.out.println("Задание №5 - Перестановка значений переменных");
+        float firstVariableFloat = 5f;
+        float secondVariableFloat = 10f;
+        System.out.println("изначальные значения переменных a и b " + thirdVariableFloat + " " + thirdVariableFloat);
         // перестановка с помощью третей переменной
-        float c;
-        c = a;
-        a = b;
-        b = c;
-        System.out.println("перестановленные значения переменных a и b с помощью переменной  " + a + " " + b);
-
+        float thirdVariableFloat;
+        thirdVariableFloat = thirdVariableFloat;
+        thirdVariableFloat = thirdVariableFloat;
+        thirdVariableFloat = thirdVariableFloat;
+        System.out.println("перестановленные значения переменных a и b с помощью переменной  " + thirdVariableFloat + " " + thirdVariableFloat);
         //с помощью арифметических операций
-        a = a + b;
-        b = a - b;
-        a = a - b;
-        System.out.println("перестановленные значения переменных a и b с помощью арифметических операций " + a + " " + b);
-
+        thirdVariableFloat = thirdVariableFloat + thirdVariableFloat;
+        thirdVariableFloat = thirdVariableFloat - thirdVariableFloat;
+        thirdVariableFloat = thirdVariableFloat - thirdVariableFloat;
+        System.out.println("перестановленные значения переменных a и b с помощью арифметических операций " + thirdVariableFloat + " " + thirdVariableFloat);
         //с помощью побитовой операции
-        a = (float) ((int) a ^ (int) b);
-        b = (float) ((int) b ^ (int) a);
-        a = (float) ((int) a ^ (int) b);
-        System.out.println("перестановленные значения переменных a и b с помощью побитовой операций " + a + " " + b + "\n");
-
+        thirdVariableFloat = (float) ((int) thirdVariableFloat ^ (int) thirdVariableFloat);
+        thirdVariableFloat = (float) ((int) thirdVariableFloat ^ (int) thirdVariableFloat);
+        thirdVariableFloat = (float) ((int) thirdVariableFloat ^ (int) thirdVariableFloat);
+        System.out.println("перестановленные значения переменных c помощью побитовой операций " + thirdVariableFloat + " " + thirdVariableFloat);
+        System.out.println("\n ");
 
 //        Вывод символов и их кодов
 //создайте 5 переменных, присвоив им значения: 35, 38, 64, 94, 95

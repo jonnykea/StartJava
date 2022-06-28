@@ -6,12 +6,12 @@ package Lesson_1.IfElse.IfElse;
 //в числах N и M одинаковые цифры A, B, C стоят в X, Y, Z разрядах
 public class IfElseStatementTheme4 {
     public static void main(String[] args) {
-        String N = "111";
+        String N = "123";
         char A = N.charAt(0);
         char B = N.charAt(1);
         char C = N.charAt(2);
 
-        String M = "111";
+        String M = "154";
         char X = M.charAt(0);
         char Y = M.charAt(1);
         char Z = M.charAt(2);

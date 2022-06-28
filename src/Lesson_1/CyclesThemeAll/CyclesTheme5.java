@@ -1,4 +1,4 @@
-package Lesson_1.CyclesTheme;
+package Lesson_1.CyclesThemeAll;
 //Проверка количества единиц на четность
 //        дано число 3141591
 //        проверьте в цикле while, является ли количество единиц четным

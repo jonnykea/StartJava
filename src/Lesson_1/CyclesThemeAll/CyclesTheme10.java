@@ -1,10 +1,8 @@
-package Lesson_1.CyclesTheme;
+package Lesson_1.CyclesThemeAll;
 //10.	Вывод таблицы умножения Пифагора
 //        ○	отобразите таблицу умножения в точности, как в образце, включая горизонтальные и вертикальные линии
 //        ○	не добавляйте между строками и столбцами лишние пустоты
 //        ○	используйте цикл for
-
-import java.sql.SQLOutput;
 
 public class CyclesTheme10 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Lesson_1.CyclesTheme;
+package Lesson_1.CyclesThemeAll;
 //Отображение фигур в консоли
 //        отобразите геометрические фигуры, используя:
 //        для прямоугольника только for

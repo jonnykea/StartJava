@@ -1,4 +1,4 @@
-package Lesson_1.CyclesTheme;
+package Lesson_1.CyclesThemeAll;
 //Вывод чисел в интервале между (max и min)
 //        даны значения 10, 5, -1
 //        найдите среди них max и min число
