@@ -5,17 +5,17 @@ public class VariablesTheme {
     public static void main(String[] args) {
         System.out.println("Задание №1 - Создание переменных и вывод их значений на консоль");
         byte firstVariable = -5;
-        short secondVariable = -5555;
-        int thirdVariable = 555555;
-        long fourthVariable = 5555555;
-        float fifthVariable = 55555555;
-        double sixthVariable = 55555555;
+        short secondVariable = -5;
+        int thirdVariable = 55;
+        long fourthVariable = 55555;
+        float fifthVariable = 5.55f;
+        double sixthVariable = 5.555;
         char signVariable = '%';
         boolean conditionVariable = true;
 
         System.out.println("simple variable:  " +
-                "\n " + fifthVariable + " " + secondVariable + " " + thirdVariable + " " + fourthVariable + " " + fifthVariable
-                + " " + sixthVariable + " " + "\n" + signVariable + " , " + conditionVariable);
+                "\n " + fifthVariable + " , " + secondVariable + " , " + thirdVariable + " , " + fourthVariable + " , " + fifthVariable
+                + "  " + sixthVariable + " , " + signVariable + " , " + conditionVariable);
         System.out.println("\n ");
 
 
@@ -64,69 +64,60 @@ public class VariablesTheme {
         System.out.println("переменная - тип byte " + "исходная = " + startVariableByte + " инкрементированная = " + incrementByte + " декрементированная = " + decrementByte);
         System.out.println("переменная - тип short " + "исходная = " + startVariableShort + " инкрементированная = " + incrementShort + " декрементированная = " + decrementShort);
         System.out.println("переменная - тип int " + "исходная = " + startVariableInt + " инкрементированная = " + incrementInt + " декрементированная = " + decrementInt);
-        System.out.println("переменная - тип long " + "исходная = " + startVariableLong + " инкрементированная = " + incrementLong + " декрементированная = " + decrementLong + "\n");
+        System.out.println("переменная - тип long " + "исходная = " + startVariableLong + " инкрементированная = " + incrementLong + " декрементированная = " + decrementLong);
+        System.out.println("\n ");
 
 
         System.out.println("Задание №5 - Перестановка значений переменных");
         float firstVariableFloat = 5f;
         float secondVariableFloat = 10f;
-        System.out.println("изначальные значения переменных a и b " + thirdVariableFloat + " " + thirdVariableFloat);
+        System.out.println("изначальные значения переменных " + firstVariableFloat + " " + secondVariableFloat);
         // перестановка с помощью третей переменной
         float thirdVariableFloat;
-        thirdVariableFloat = thirdVariableFloat;
-        thirdVariableFloat = thirdVariableFloat;
-        thirdVariableFloat = thirdVariableFloat;
-        System.out.println("перестановленные значения переменных a и b с помощью переменной  " + thirdVariableFloat + " " + thirdVariableFloat);
+        thirdVariableFloat = firstVariableFloat;
+        firstVariableFloat = secondVariableFloat;
+        secondVariableFloat = thirdVariableFloat;
+        System.out.println("перестановленные значения переменных с помощью переменной  " + firstVariableFloat + " " + secondVariableFloat);
+
         //с помощью арифметических операций
-        thirdVariableFloat = thirdVariableFloat + thirdVariableFloat;
-        thirdVariableFloat = thirdVariableFloat - thirdVariableFloat;
-        thirdVariableFloat = thirdVariableFloat - thirdVariableFloat;
-        System.out.println("перестановленные значения переменных a и b с помощью арифметических операций " + thirdVariableFloat + " " + thirdVariableFloat);
+        firstVariableFloat = firstVariableFloat + secondVariableFloat;
+        secondVariableFloat = firstVariableFloat - secondVariableFloat;
+        firstVariableFloat = firstVariableFloat - secondVariableFloat;
+        System.out.println("перестановленные значения переменных c помощью арифметических операций " + firstVariableFloat + " " + secondVariableFloat);
+
         //с помощью побитовой операции
-        thirdVariableFloat = (float) ((int) thirdVariableFloat ^ (int) thirdVariableFloat);
-        thirdVariableFloat = (float) ((int) thirdVariableFloat ^ (int) thirdVariableFloat);
-        thirdVariableFloat = (float) ((int) thirdVariableFloat ^ (int) thirdVariableFloat);
-        System.out.println("перестановленные значения переменных c помощью побитовой операций " + thirdVariableFloat + " " + thirdVariableFloat);
-        System.out.println("\n ");
-
-//        Вывод символов и их кодов
-//создайте 5 переменных, присвоив им значения: 35, 38, 64, 94, 95
-//отобразите в консоли:
-//код символа
-//напротив кода соответствующий ему символ (делайте это программно, а не написав его самим) из ASCII-таблицы
-
-        int a = 35;
-        int b = 38;
-        int c = 64;
-        int d = 94;
-        int e = 95;
-        System.out.println(" код переменной " + a + " код символа " + (char) a);
-        System.out.println(" код переменной " + b + " код символа " + (char) b);
-        System.out.println(" код переменной " + c + " код символа " + (char) c);
-        System.out.println(" код переменной " + d + " код символа " + (char) d);
-        System.out.println(" код переменной " + e + " код символа " + (char) e);
+        firstVariableFloat = (float) ((int) firstVariableFloat ^ (int) secondVariableFloat);
+        secondVariableFloat = (float) ((int) secondVariableFloat ^ (int) firstVariableFloat);
+        firstVariableFloat = (float) ((int) firstVariableFloat ^ (int) secondVariableFloat);
+        System.out.println("перестановленные значения переменных с помощью побитовой операций " + firstVariableFloat + " " + secondVariableFloat);
         System.out.println("\n ");
 
 
-//        Произведение и сумма цифр числа имеется число 345 найдите произведение, а затем сумму его цифр не используйте цикл
-//выделяйте каждую цифру числа программно, а не написав их самим
-//используйте для этого только операции / и %
-//выведите результат в следующем формате:
-//сумма цифр числа N = столько-то
-//произведение цифр числа N = столько-то
+        System.out.println("Задание №6 - Вывод символов и их кодов");
+        int variable1 = 35;
+        int variable2 = 38;
+        int variable3 = 64;
+        int variable4 = 94;
+        int variable5 = 95;
+        System.out.println(" код переменной " + variable1 + " код символа " + (char) variable1);
+        System.out.println(" код переменной " + variable2 + " код символа " + (char) variable2);
+        System.out.println(" код переменной " + variable3 + " код символа " + (char) variable3);
+        System.out.println(" код переменной " + variable4 + " код символа " + (char) variable4);
+        System.out.println(" код переменной " + variable5 + " код символа " + (char) variable5);
+        System.out.println("\n ");
 
+
+        System.out.println("Задание №7 - Найдите произведение, а затем сумму цифр числа 345");
         int sum = 0;
         int product = 1;
         int digit;
         int value = 345;
-
         // найти цифру
         digit = value % 10;
         // добавить цифру к сумме
         sum += digit;
         // добавить цифру к произведению
         product *= digit;
-
         // передвинуть разряд
         value = value / 10;
         // найти цифру
@@ -135,7 +126,6 @@ public class VariablesTheme {
         sum += digit;
         // добавить цифру к произведению
         product *= digit;
-
         // передвинуть разряд
         value = value / 10;
         // найти цифру
@@ -144,82 +134,54 @@ public class VariablesTheme {
         sum += digit;
         // добавить цифру к произведению
         product *= digit;
-
         // вывести сумму
         // вывести произведение
-
         System.out.printf("Произвведние чисел числа 345 = %d, сумма чисел числа 345 = %d", product, sum);
         System.out.println("\n");
 
 
-//        Вывод на консоль ASCII-арт Дюка
-//отобразите в консоли Java-талисман, используя символы из примера ниже:
-//    /\
-//   /  \
-//  /_( )\
-// /      \
-///____/\__\
-//каждый уникальный символ, включая пробел, храните в отдельной переменной
-//отобразите (построчно, а не посимвольно) результат в консоль, используя значения переменных
+        System.out.println("Задание №8 - Вывод на консоль ASCII-арт Дюка");
+        String slash = "/";
+        String backslash = "\\";
+        String underscore = "_";
+        String space = " ";
+        String open = "(";
+        String close = ")";
 
-        String a = "/";
-        String b = "\\";
-        String c = "_";
-        String d = " ";
-        String e = "(";
-        String f = ")";
-
-        System.out.println(d + d + d + d + a + b +
-                "\n" + d + d + d + a + d + d + b +
-                "\n" + d + d + a + c + e + d + f + b +
-                "\n" + d + a + d + d + d + d + d + d + b +
-                "\n" + a + c + c + c + c + a + b + c + c + b);
+        System.out.println(space + space + space + space + slash + backslash +
+                "\n" + space + space + space + slash + space + space + backslash +
+                "\n" + space + space + slash + underscore + open + space + close + backslash +
+                "\n" + space + slash + space + space + space + space + space + space + backslash +
+                "\n" + slash + underscore + underscore + underscore + underscore + slash + backslash + underscore + underscore + backslash);
         System.out.println("\n");
 
 
-//Отображение количества сотен, десятков и единиц числа
-//имеется число 123
-//выделите у него программно сотни, десятки и единицы
-//используйте для этого только операции / и %
-//отобразите результат, как “Число N содержит:”
-//X сотен
-//Y десятков
-//Z единиц
-
-
-        int N = 123;
-        int X = N / 100;
-        int Y = (N / 10) % 10;
-        int Z = N % 10;
+        System.out.println("Задание №9 - Отображение количества сотен, десятков и единиц числа 123");
+        int number = 123;
+        int hundred = number / 100;
+        int tens = (number / 10) % 10;
+        int units = number % 10;
         System.out.println(" Число N - 123 содержит: " +
-                "\n" + " X - сотен    " + X +
-                "\n" + " Y - дестков  " + Y +
-                "\n" + " Y - единиц   " + Z);
+                "\n" + " сотен    " + hundred +
+                "\n" + " дестков  " + tens +
+                "\n" + " единиц   " + units);
         System.out.println("\n");
 
 
-//        Преобразование секунд
-//имеется количество секунд 86399
-//переведите его в часы, минуты и секунды
-//используйте для этого только операции / и %
-//отобразите полученные значения в формате ЧЧ:ММ:СС
+        System.out.println("Задание №10 - Преобразование секунд из 86399");
+        int initial = 86399;
+        long hour = initial / 3600;
+        int min = (initial / 60) % 60;
+        int sec = initial % 60;
 
-        int secs = 86399;
-        long hour = secs / 3600;
-        int min = (secs / 60) % 60;
-        int sec = secs % 60;
+      /*   int min = (secs - (hour*3600)) % 60;
+         int sec = (secs - (min*60)) % 60;*/
 
-        // int min = (secs - (hour*3600)) % 60;
-        // int sec = (secs - (min*60)) % 60;
-
-        System.out.println(secs +
+        System.out.println(initial +
                 "\n" + " часы    " + hour +
                 "\n" + " минуты  " + min +
                 "\n" + " секунды " + sec);
         System.out.printf("%02d:%02d:%02d", hour, min, sec);
-        System.out.println("\n");
-
-
     }
 }
 

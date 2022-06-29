@@ -2,31 +2,7 @@ package Lesson_1;
 
 public class IfElseStatementTheme {
     public static void main(String[] args) {
-        //Перевод псевдокода на язык Java (это название задачи)
-//        перепишите псевдокод, приведенный ниже, с помощью Java
-//        используйте переменные, условные операторы, логическое НЕ
-//        придумайте сообщения и отобразите в консоли
-//        ЕСЛИ(возраст > 20) {
-//        сообщение
-//        } ИНАЧЕ {
-//        сообщение
-//        }
-//        ЕСЛИ(!мужскойПол) {
-//        сообщение
-//        }
-//        ЕСЛИ(рост < 1.80) {
-//        сообщение
-//        } ИНАЧЕ {
-//        сообщение
-//        }
-//        перваяБукваИмени = “Имя”.charAt(0);
-//        ЕСЛИ(перваяБукваИмени == 'M') {
-//        сообщение
-//        } ИНАЧЕ ЕСЛИ(перваяБукваИмени == 'I') {
-//        сообщение
-//        } ИНАЧЕ {
-//        сообщение
-//        }
+        System.out.println("Задание №1 - Перевод псевдокода на язык Java");
         int age = 33;
         boolean isMale = false;
         float height = 1.75f;
@@ -55,208 +31,151 @@ public class IfElseStatementTheme {
         System.out.println("\n");
 
 
-//        Поиск max и min числа
-//        создайте две переменные, присвоив им любые числа
-//        найдите максимальное и минимальное число
-//        выведите числа на консоль, указав какое из них max и min
-        int x = 45;
-        int y = 55;
-
-        if (x > y) {
-            System.out.println("максимальное число " + x);
+        System.out.println("Задание №2 - Поиск max и min числа");
+        int firstNumber = 45;
+        int secondNumber = 55;
+        if (firstNumber > secondNumber) {
+            System.out.println("максимальное число " + firstNumber);
         } else {
-            System.out.println("максимальное число " + y);
+            System.out.println("максимальное число " + secondNumber);
         }
-        if (x < y) {
-            System.out.println("минимальное число  " + x);
+        if (firstNumber < secondNumber) {
+            System.out.println("минимальное число  " + firstNumber);
         }
         System.out.println("\n");
 
 
-//        Работа с числом
-//        создайте переменную с любым числом
-//        определите, являться ли оно:
-//        нулем
-//        четным (нечетным)
-//        отрицательным (положительным)
-//        если число равно 0, то остальные проверки не должны осуществляться
-//        отобразите полученные результаты
-
-        int x = 15;
-        if (x == 0) {
-            System.out.println(x + " is null");
+        System.out.println("Задание №3 - Работа с числом");
+        int numeric = 15;
+        if (numeric == 0) {
+            System.out.println(numeric + " is null");
         } else {
-
-            if (x > 0) {
-                System.out.println(x + " is positive");
+            if (numeric > 0) {
+                System.out.println(numeric + " is positive");
             } else {
-                System.out.println(x + " is negative");
+                System.out.println(numeric + " is negative");
             }
-            if (x % 2 == 0) {
-                System.out.println(x + " is even");
+            if (numeric % 2 == 0) {
+                System.out.println(numeric + " is even");
             } else {
-                System.out.println(x + " is odd");
+                System.out.println(numeric + " is odd");
             }
         }
         System.out.println("\n");
 
-//        Поиск одинаковых цифр в числах
-//создайте две переменные, присвоив им два трехзначных целых числа
-//найдите в них одинаковые цифры, стоящие в одном и том же разряде
-//отобразите результат в формате:
-//в числах N и M одинаковые цифры A, B, C стоят в X, Y, Z разрядах
 
-        String N = "111";
-        char A = N.charAt(0);
-        char B = N.charAt(1);
-        char C = N.charAt(2);
-
-        String M = "111";
-        char X = M.charAt(0);
-        char Y = M.charAt(1);
-        char Z = M.charAt(2);
-        System.out.println("Число N " + N + "\n" + "Число M " + M);
-        if (A == X) {
-            System.out.println("В числах N и M одинаковые цифры A, B, C стоят в X, Y, Z в  первом разряде - " + A + " и " + X);
+        System.out.println("Задание №4 - Поиск одинаковых цифр в числах");
+        String firstNumeric = "131";
+        char oneOfFirst = firstNumeric.charAt(0);
+        char twoOfFirst = firstNumeric.charAt(1);
+        char threeOfFirst = firstNumeric.charAt(2);
+        String secondNumeric = "411";
+        char oneOfSecond = secondNumeric.charAt(0);
+        char twoOfSecond = secondNumeric.charAt(1);
+        char threeOfSecond = secondNumeric.charAt(2);
+        System.out.println("Число N " + firstNumeric + "\n" + "Число M " + secondNumeric);
+        if (oneOfFirst == oneOfSecond) {
+            System.out.println("В числах firstNumeric и secondNumeric одинаковые цифры стоят в первом разряде - " + oneOfFirst + " и " + oneOfSecond);
         }
-        if (B == Y) {
-            System.out.println("В числах N и M одинаковые цифры A, B, C стоят в X, Y, Z во втором разряде - " + B + " и " + Y);
+        if (twoOfFirst == twoOfSecond) {
+            System.out.println("В числах firstNumeric и secondNumeric одинаковые цифры стоят во втором разряде - " + twoOfFirst + " и " + twoOfSecond);
         }
-        if (C == Z) {
-            System.out.println("В числах N и M одинаковые цифры A, B, C стоят в X, Y, Z в третьем разряде - " + C + " и " + Z);
+        if (threeOfFirst == threeOfSecond) {
+            System.out.println("В числах firstNumeric и secondNumeric одинаковые цифры стоят в третьем разряде - " + threeOfFirst + " и " + threeOfSecond);
         }
         System.out.println("\n");
 
-//        Определение буквы, числа или символа по их коду
-//создайте переменную типа char
-//присвойте ей значение ‘\u0057’
-//определите — это код буквы, числа или другого символа
-//использовать для этого методы классов Java запрещено!
-//выведите в консоль сам символ и информацию о нем:
-//маленькая (большая) буква
-//это число
-//не буква и не число
 
-        char A = '\u0057';
-        if (A >= 0 && A < 48 && A >= 58 && A < 65 && A >= 123 && A <= 127) {
-            System.out.println(A + " переменная А является не буквой и не число");
-        } else if (A >= 48 && A < 58) {
-            System.out.println(A + " является числом");
-        } else if (A >= 65 && A < 91) {
-            System.out.println(A + " является заглавной буквой");
-        } else if (A >= 61 && A < 123) {
-            System.out.println(A + " является маленькой буквой");
+        System.out.println("Задание №5 - Определение буквы, числа или символа по их коду");
+        char originalCode = '\u0057';
+        if (originalCode >= 0 && originalCode < 48 && originalCode >= 58 && originalCode < 65 && originalCode >= 123 && originalCode <= 127) {
+            System.out.println(originalCode + " переменная является не буквой и не число");
+        } else if (originalCode >= 48 && originalCode < 58) {
+            System.out.println(originalCode + " является числом");
+        } else if (originalCode >= 65 && originalCode < 91) {
+            System.out.println(originalCode + " является заглавной буквой");
+        } else if (originalCode >= 61 && originalCode < 123) {
+            System.out.println(originalCode + " является маленькой буквой");
         }
         System.out.println("\n");
 
-//Определение суммы вклада и начисленных банком %
-//сумма вклада равна 300_000 руб.
-//если она:
-//меньше 100 000, то банк начисляет 5% годовых
-//от 100 000 до 300 000, то — 7%
-//больше 300 000, то — 10%
-//отобразите в консоли:
-//сумму вклада
-//начисленный %
-//итоговую сумму с %
+
+        System.out.println("Задание №6 - Определение суммы вклада и начисленных банком %");
         int sum = 300_000;
         if (sum < 100_000) {
             double interest = sum * 0.05;
-            System.out.println("Сумма вклада " + sum + "\n" + "Начисленный процент " + (int) interest +
-                    "\n" + "Итоговая сумма " + ((int) interest + sum));
+            System.out.println("Сумма вклада " + sum + "\n" + "Начисленный процент " + (int) interest + "\n" + "Итоговая сумма " + ((int) interest + sum));
         } else if (sum < 300_000 && sum > 100_000) {
             double interest = sum * 0.07;
-            System.out.println("Сумма вклада " + sum + "\n" + "Начисленный процент " + (int) interest +
-                    "\n" + "Итоговая сумма " + ((int) interest + sum));
+            System.out.println("Сумма вклада " + sum + "\n" + "Начисленный процент " + (int) interest + "\n" + "Итоговая сумма " + ((int) interest + sum));
         } else if (sum >= 300_000) {
             double interest = sum * 0.1;
-            System.out.println("Сумма вклада " + sum + "\n" + "Начисленный процент " + (int) interest +
-                    "\n" + "Итоговая сумма " + ((int) interest + sum));
+            System.out.println("Сумма вклада " + sum + "\n" + "Начисленный процент " + (int) interest + "\n" + "Итоговая сумма " + ((int) interest + sum));
         }
         System.out.println("\n");
 
 
-//Определение оценки по предметам
-//студент получил итоговые % по предметам:
-//история 59%
-//программирование 91%
-//определите оценки по каждому предмету:
-//<= 60% — 2
-//> 60% - 3
-//> 73% - 4
-//> 91% - 5
-//выведите в консоль:
-//оценку и напротив предмет
-//средний балл оценок по предметам
-//средний % по предметам
-
-        int history = 59;
-        String h = "History";
-        String p = "Programming";
-        int programming = 91;
-        int mP = 1;
-        int mH = 1;
-
-        if (history <= 60) {
+        System.out.println("Задание №7 - Определение оценки по предметам");
+        int historyBall = 59;
+        String historySubject = "History";
+        String programmingSubject = "Programming";
+        int programmingBall = 91;
+        int markProgramming = 1;
+        int markHistory = 1;
+        int amountSubject = 2;
+        //определение оценки в зависимости от бала "история"
+        if (historyBall <= 60) {
             int markH = 2;
-            mH = markH;
-            System.out.println("Предмет " + h + " Ваша оценка по истории - " + markH);
-        } else if (history > 60 && history <= 73) {
+            markHistory = markH;
+            System.out.println("Предмет " + historySubject + " Ваша оценка по истории - " + markH);
+        } else if (historyBall > 60 && historyBall <= 73) {
             int markH = 3;
-            mH = markH;
-            System.out.println("Предмет " + h + " Ваша оценка по истории - " + markH);
-        } else if (history > 73 && history <= 91) {
+            markHistory = markH;
+            System.out.println("Предмет " + historySubject + " Ваша оценка по истории - " + markH);
+        } else if (historyBall > 73 && historyBall <= 91) {
             int markH = 4;
-            mH = markH;
-            System.out.println("Предмет " + h + " Ваша оценка по истории - " + markH);
-
-        } else if (history > 91) {
+            markHistory = markH;
+            System.out.println("Предмет " + historySubject + " Ваша оценка по истории - " + markH);
+        } else if (historyBall > 91) {
             int markH = 5;
-            mH = markH;
-            System.out.println("Предмет " + h + " Ваша оценка по истории - " + markH);
+            markHistory = markH;
+            System.out.println("Предмет " + historySubject + " Ваша оценка по истории - " + markH);
         }
-
-        if (programming <= 60) {
+        //определение оценки в зависимости от бала "програмирование"
+        if (programmingBall <= 60) {
             int markP = 2;
-            mP = markP;
-            System.out.println("Предмет " + p + " Ваша оценка по истории - " + markP);
-        } else if (programming > 60 && programming <= 73) {
+            markProgramming = markP;
+            System.out.println("Предмет " + programmingSubject + " Ваша оценка по истории - " + markP);
+        } else if (programmingBall > 60 && programmingBall <= 73) {
             int markP = 3;
-            mP = markP;
-            System.out.println("Предмет " + h + " Ваша оценка по истории - " + markP);
-        } else if (programming > 73 && programming <= 91) {
+            markProgramming = markP;
+            System.out.println("Предмет " + historySubject + " Ваша оценка по истории - " + markP);
+        } else if (programmingBall > 73 && programmingBall <= 91) {
             int markP = 4;
-            mP = markP;
-            System.out.println("Предмет " + p + " Ваша оценка по истории - " + markP);
-
-        } else if (programming > 91) {
+            markProgramming = markP;
+            System.out.println("Предмет " + programmingSubject + " Ваша оценка по истории - " + markP);
+        } else if (programmingBall > 91) {
             int markP = 5;
-            mP = markP;
-            System.out.println("Предмет " + p + " Ваша оценка по истории - " + markP);
+            markProgramming = markP;
+            System.out.println("Предмет " + programmingSubject + " Ваша оценка по истории - " + markP);
         }
-        int m = (mP + mH) / 2;
-        int midPercent = (history + programming) / 2;
-        System.out.println("Средний бал оценок по предметам - " + m +
-                "\n" + "Средний процент предметов - " + midPercent + " %");
+        //определение среднего бала
+        int middleBall = (markProgramming + markHistory) / amountSubject;
+        int midPercent = (historyBall + programmingBall) / amountSubject;
+        System.out.println("Средний бал оценок по предметам - " + middleBall + "\n" + "Средний процент предметов - " + midPercent + " %");
         System.out.println("\n");
 
 
-//продавеу снимает помещение за 5000 руб в месяц
-//в среднем он продает товара на 13000 руб
-//при этом его себестоимость равна 9000 руб
-//посчитайте годовую прибыль
-//отобразите ее в консоли в следующем формате, например:
-//   прибыль за год - 1000 руб
-//   прибыль за год + 3000 руб
-//если прибыль положительная, то рядом с чмслом необходимо отображать+
-
-
+        System.out.println("Задание №8 - Посчитайте годовую прибыль");
         int SpentLent = 5000;
-        int proceed = 13000 - 9000; // выручка
-        int year = 12;
-        int LentForYear = SpentLent * year;
-        int ProcedForYear = proceed * year;
-        int profit = ProcedForYear - LentForYear;
+        // выручка за месяц
+        int proceed = 13000 - 9000;
+        int mouths = 12;
+        // аренда за год
+        int LentForYear = SpentLent * mouths;
+        int ProceedForYear = proceed * mouths;
+        // чистая прибыль за год
+        int profit = ProceedForYear - LentForYear;
         if (profit >= 0) {
             System.out.println("Прибыль за год составила  " + profit + " руб." + " +");
         } else if (profit < 0) {
@@ -265,33 +184,18 @@ public class IfElseStatementTheme {
         System.out.println("\n");
 
 
-//Подсчет количества банкнот
-//из банкомата вам необходимо снять 567 USD
-//подсчитайте, с помощью какого количества банкнот номиналом 1, 10, 100 банкомат может выдать необходимую сумму
-//при этом в банкомате осталось только 5 банкнот номиналом 10
-//проведите обратный расчет начальной суммы по полученному количеству банкнот, чтобы убедиться в правильности вычислений
-//если каких-то банкнот не хватает, то их нужно заменить банкнотами другого номинала
-//выведите в консоль:
-//номиналы банкнот
-//требуемое их количество
-//посчитанную исходную сумму
-
-
+        System.out.println("Задание №9 - Подсчет количества банкнот");
         int amount = 567;
         int hundred = amount / 100;
         int ten = (amount / 10) % 10;
         int unit = amount % 10;
-
         if (ten > 5) {
             ten = 5;
             unit += 10;
         }
         int total = (hundred * 100) + (ten * 10) + unit;
-        System.out.println("итоговая сумма " + total +
-                "\n" + "количестово купюр номиналом 100 $ " + hundred +
-                "\n" + "количестово купюр номиналом 10 $ " + ten +
-                "\n" + "количестово купюр номиналом 1 $ " + unit);
-        System.out.println("\n");
+        System.out.println("итоговая сумма " + total + "\n" + "количестово купюр номиналом 100 $ " + hundred +
+                "\n" + "количестово купюр номиналом 10 $ " + ten + "\n" + "количестово купюр номиналом 1 $ " + unit);
     }
 }
 
