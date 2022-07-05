@@ -18,7 +18,7 @@ public class CyclesTheme {
         System.out.println("сумма четных чисел = " + scoreOfEven);
         System.out.println("сумма нечетных чисел = " + ScoreOfOdd);
 
-        System.out.println("\n" + "Задание №2 - Вывод чисел в интервале между (max и min)");
+        System.out.println("\nЗадание №2 - Вывод чисел в интервале между (max и min)");
         int initialMax = 0;
         int initialMin = 0;
         int firstValue = 10;
@@ -46,7 +46,7 @@ public class CyclesTheme {
             System.out.println(i);
         }
 
-        System.out.println("\n" + "Задание №3 - Вывод реверсивного числа и суммы его цифр");
+        System.out.println("\nЗадание №3 - Вывод реверсивного числа и суммы его цифр");
         int sum = 0;
         int initialNumeric = 1234;
         int rank;
@@ -60,7 +60,7 @@ public class CyclesTheme {
         } while (initialNumeric > 0);
         System.out.println("сумма чисел числа 1234 = " + sum);
 
-        System.out.println("\n" + "Задание №4 - Вывод чисел на консоль в несколько строк");
+        System.out.println("\nЗадание №4 - Вывод чисел на консоль в несколько строк");
         final int startInclusive = 1;
         final int stopExclusive = 24;
         final int step = 2;
@@ -82,7 +82,7 @@ public class CyclesTheme {
             }
         }
 
-        System.out.println("\n\n" + "Задание №5 - Проверка количества единиц на четность");
+        System.out.println("\n\nЗадание №5 - Проверка количества единиц на четность");
         String even = "";
         int onesCount = 0;
         // Counting how much ones in the number
@@ -103,7 +103,7 @@ public class CyclesTheme {
         }
         System.out.println("число " + number + " содержит количество '1' - " + onesCount + " - " + even);
 
-        System.out.println("\n" + "Задание №6 - Отображение фигур в консоли");
+        System.out.println("\nЗадание №6 - Отображение фигур в консоли");
         System.out.println("Прямоугольник");
         int rectangle = 5; //Прямоугольник
         for (i = 1; i <= rectangle; i++) {
@@ -138,7 +138,7 @@ public class CyclesTheme {
             System.out.println();
         } while (i++ < 4);
 
-        System.out.print("\n" + "Задание №7 -  Отображение ASCII-символов");
+        System.out.print("\nЗадание №7 -  Отображение ASCII-символов");
         for (char indexNumber = 0; indexNumber <= 47; indexNumber++) {
             if (indexNumber % 2 != 0) {
                 System.out.printf("\n" + "нечетный код %2c", indexNumber);
@@ -150,7 +150,7 @@ public class CyclesTheme {
             }
         }
 
-        System.out.println("\n\n" + "Задание №8 - Проверка, является ли число палиндромом");
+        System.out.println("\n\nЗадание №8 - Проверка, является ли число палиндромом");
         String word = "1234321";
         int length = word.length();
         i = 0;
@@ -166,7 +166,7 @@ public class CyclesTheme {
             System.out.printf("число %s является палиндромом", word);
         }
 
-        System.out.println("\n\n" + "Задание №9 - Определение, является ли число счастливым");
+        System.out.println("\n\nЗадание №9 - Определение, является ли число счастливым");
         String wordHappy = "125512";
         length = wordHappy.length();
         i = 0;
@@ -191,7 +191,7 @@ public class CyclesTheme {
             System.out.printf("число %s неявляется счастливым", wordHappy);
         }
 
-        System.out.println("\n\n" + "Задание №10 - Вывод таблицы умножения Пифагора");
+        System.out.println("\n\nЗадание №10 - Вывод таблицы умножения Пифагора");
         int startString = 1;
         int stopString = 9;
         int stepNumber = 1;

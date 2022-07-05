@@ -20,9 +20,9 @@ public class VariablesTheme {
         int costGoods1 = 100;
         int costGoods2 = 200;
         int discount = ((costGoods1 + costGoods2) / 100) * 11;
-        int totalValue = (costGoods1 + costGoods2) - discount;
+        int discountPrice = (costGoods1 + costGoods2) - discount;
         System.out.println("сумма скидки - " + discount + "\n" + "общая стоимость товара c учетом скидки - "
-                + totalValue + "\n");
+                + discountPrice + "\n");
 
         System.out.println("Задание №3 - Вывод на консоль слова JAVA");
         String smallA = "a";
@@ -32,8 +32,8 @@ public class VariablesTheme {
         System.out.println("    " + bigJ + "    " + smallA + "  " + smallV + "       " + smallV + "  " + smallA + "\n"
                 + "    " + bigJ + "   " + smallA + " " + smallA + "  " + smallV + "     " + smallV + "  " + smallA +
                 " " + smallA + "\n" + " " + bigJ + "  " + bigJ + "  " + smallA + smallA + smallA + smallA + smallA
-                + smallA + "  " + bigV + "  " + bigV + "  " + smallA + smallA + smallA + smallA + smallA + "\n" + "  "
-                + bigJ + bigJ + "   " + smallA + "      " + smallA + "  " + bigV + "  " + smallA + "       "
+                + smallA + " " + bigV + "   " + bigV + "  " + smallA + smallA + smallA + smallA + smallA + "\n" + "  "
+                + bigJ + bigJ + " " + smallA + "       " + smallA + "  " + bigV + "  " + smallA + "       "
                 + smallA + "\n");
 
         System.out.println("Задание №4 - Создание переменные всех целых числовых типов");
@@ -53,23 +53,26 @@ public class VariablesTheme {
         System.out.println("Задание №5 - Перестановка значений переменных");
         float number1 = 5.5f;
         float number2 = 10.5f;
+        float number1ForByte = 5.5f;
+        float number2ForByte = 10.5f;
         System.out.println("изначальные значения переменных " + number1 + " " + number2);
         // перестановка с помощью третей переменной
-        float buffer;
-        buffer = number1;
+        float buffer = number1;
         number1 = number2;
         number2 = buffer;
         System.out.println("перестановленные значения переменных с помощью переменной  " + number1 + " " + number2);
         //с помощью арифметических операций
-        number1 = number1 + number2;
+        number1 += number2;
         number2 = number1 - number2;
-        number1 = number1 - number2;
+        number1 -= number2;
         System.out.println("перестановленные значения переменных c помощью арифметических операций " + number1 + " "
                 + number2);
         //с помощью побитовой операции
         number1 = (float) ((int) number1 ^ (int) number2);
         number2 = (float) ((int) number2 ^ (int) number1);
         number1 = (float) ((int) number1 ^ (int) number2);
+        number1 = (number2ForByte - number1) + number1;
+        number2 = (number1ForByte - number1) + number1;
         System.out.println("перестановленные значения переменных с помощью побитовой операций " + number1 + " "
                 + number2 + "\n ");
 
@@ -84,28 +87,21 @@ public class VariablesTheme {
                 + (char) codeChar4 + "\n" + codeChar5 + " код - " + (char) codeChar5 + "\n");
 
         System.out.println("Задание №7 - Найдите произведение, а затем сумму цифр числа 345");
-        int sumDigits;
-        int prodDigits;
-        int digit1;
-        int digit2;
-        int digit3;
         int srcNum = 345;
-        digit3 = srcNum % 10;
-        srcNum = srcNum / 10;
-        digit2 = srcNum % 10;
-        srcNum = srcNum / 10;
-        digit1 = srcNum % 10;
-        System.out.printf("Произвведние чисел числа 345 = %d, сумма чисел числа 345 = %d", digit1 * digit2 * digit3,
-                +digit1 + digit2 + digit3);
+        int digit3 = srcNum % 10;
+        int digit2 = (srcNum / 10) % 10;
+        int digit1 = srcNum / 100;
+        System.out.printf("Произведние чисел числа 345 = %d, сумма чисел числа 345 = %d", digit1 * digit2 * digit3,
+                digit1 + digit2 + digit3);
 
-        System.out.println("\n\n" + "Задание №8 - Вывод на консоль ASCII-арт Дюка");
-        String slash = "/";
-        String backslash = "\\";
-        String underscore = "_";
-        String space = " ";
-        String openRoundBracket = "(";
-        String closeRoundBraket = ")";
-        System.out.println(space + space + space + space + slash + backslash +
+        System.out.println("\n\nЗадание №8 - Вывод на консоль ASCII-арт Дюка");
+        char slash = '/';
+        char backslash = '\\';
+        char underscore = '_';
+        char space = ' ';
+        char openRoundBracket = '(';
+        char closeRoundBraket = ')';
+        System.out.println("\n"+space + space + space + space + slash + backslash +
                 "\n" + space + space + space + slash + space + space + backslash +
                 "\n" + space + space + slash + underscore + openRoundBracket + space + closeRoundBraket + backslash +
                 "\n" + space + slash + space + space + space + space + space + space + backslash +
