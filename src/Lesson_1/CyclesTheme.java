@@ -196,8 +196,8 @@ public class CyclesTheme {
         int stepString = 1;
         String Pifagor = "               ТАБЛИЦА ПИФАГОРА";
         System.out.printf("%s", Pifagor + "\n");
-        for (i = startString; i <= endString ; i += stepString) {
-            for (int j = 1; j <= endString ; j += stepString) {
+        for (i = startString; i <= endString; i += stepString) {
+            for (int j = 1; j <= endString; j += stepString) {
                 System.out.printf("%5d", (i * j));
             }
             numberOfStringString--;
