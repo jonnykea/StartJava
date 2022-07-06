@@ -58,35 +58,34 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\nЗадание №4 - Поиск одинаковых цифр в числах");
-        int number1 = 111;
+        int number1 = 523;
         int threeOfFirst = number1 % 10;
         int twoOfFirst = (number1 / 10) % 10;
         int oneOfFirst = number1 / 100;
-        int number2 = 111;
+        int number2 = 122;
         int threeOfSecond = number2 % 10;
         int twoOfSecond = (number2 / 10) % 10;
         int oneOfSecond = number2 / 100;
-        System.out.println("Число N " + number1 + "\n" + "Число M " + number2);
         if (oneOfFirst == oneOfSecond) {
-            System.out.println("В числах number1 и number2 одинаковые цифры стоят в первом разряде - "
-                    + oneOfFirst + " и " + oneOfSecond);
+            System.out.println("В числах " + number1 + " и " + number2 + " одинаковая цифра " + oneOfFirst +
+                    " стоит в первом разряде");
         }
         if (twoOfFirst == twoOfSecond) {
-            System.out.println("В числах number1 и number2 одинаковые цифры стоят во втором разряде - "
-                    + twoOfFirst + " и " + twoOfSecond);
+            System.out.println("В числах " + number1 + " и " + number2 + " одинаковая цифра " + twoOfFirst +
+                    " стоит во втором разряде");
         }
         if (threeOfFirst == threeOfSecond) {
-            System.out.println("В числах number1 и number2 одинаковые цифры стоят в третьем разряде - "
-                    + threeOfFirst + " и " + threeOfSecond);
+            System.out.println("В числах " + number1 + " и " + number2 + " одинаковая цифра " + threeOfFirst +
+                    " стоит в третьем разряде");
         }
 
         System.out.println("\nЗадание №5 - Определение буквы, числа или символа по их коду");
         char someChar = '\u0057';
-        if (someChar >= '0' && someChar < ':') {
+        if (someChar >= '0' && someChar < '9') {
             System.out.println(someChar + " является числом");
-        } else if (someChar >= 'A' && someChar < '[') {
+        } else if (someChar >= 'A' && someChar < 'Z') {
             System.out.println(someChar + " является заглавной буквой");
-        } else if (someChar >= 'a' && someChar < '{') {
+        } else if (someChar >= 'a' && someChar < 'z') {
             System.out.println(someChar + " является маленькой буквой");
         } else {
             System.out.println(someChar + " переменная является не буквой и не число");
