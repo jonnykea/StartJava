@@ -81,11 +81,11 @@ public class IfElseStatementTheme {
 
         System.out.println("\nЗадание №5 - Определение буквы, числа или символа по их коду");
         char someChar = '\u0057';
-        if (someChar >= '0' && someChar < '9') {
+        if (someChar >= '0' && someChar <= '9') {
             System.out.println(someChar + " является числом");
-        } else if (someChar >= 'A' && someChar < 'Z') {
+        } else if (someChar >= 'A' && someChar <= 'Z') {
             System.out.println(someChar + " является заглавной буквой");
-        } else if (someChar >= 'a' && someChar < 'z') {
+        } else if (someChar >= 'a' && someChar <= 'z') {
             System.out.println(someChar + " является маленькой буквой");
         } else {
             System.out.println(someChar + " переменная является не буквой и не число");
