@@ -131,14 +131,14 @@ public class CyclesTheme {
         } while (i++ < 4);
 
         System.out.print("\nЗадание №7 -  Отображение ASCII-символов");
-        for (char indexSign = 0; indexSign <= 47; indexSign++) {
-            if (indexSign % 2 != 0) {
-                System.out.printf("\n" + "код символа %3d символ %3c", (int) indexSign, indexSign);
+        for (char sign = 0; sign <= 47; sign++) {
+            if (sign % 2 != 0) {
+                System.out.printf("\n" + "код символа %3d символ %3c", (int) sign, sign);
             }
         }
-        for (char indexSmallLetter = 'a'; indexSmallLetter <= 'z'; indexSmallLetter++) {
-            if (indexSmallLetter % 2 == 0) {
-                System.out.printf("\n" + "код символа %3d символ %3c", (int) indexSmallLetter, indexSmallLetter);
+        for (char smallLetter = 'a'; smallLetter <= 'z'; smallLetter++) {
+            if (smallLetter % 2 == 0) {
+                System.out.printf("\n" + "код символа %3d символ %3c", (int) smallLetter, smallLetter);
             }
         }
 
@@ -157,9 +157,24 @@ public class CyclesTheme {
             System.out.printf("число %s является палиндромом", word);
         }*/
         System.out.println("\n\nЗадание №8 - Проверка, является ли число палиндромом");
-        srcNum = 1234321;
+        srcNum = 1234321; //It is the number variable to be checked for palindrome
+        digit = 0;
+        int temp;
+        int invertNum = 0;
 
-        int length = 0;
+        temp = srcNum;
+        while (srcNum > 0) {
+            digit = srcNum % 10;
+            invertNum = (invertNum * 10) + digit;
+            srcNum = srcNum / 10;
+        }
+        if (temp == invertNum)
+            System.out.println("number is palindrome - " + temp);
+        else
+            System.out.println("number is not palindrome - " + temp);
+
+
+        /*int length = 0;
         long temp = 1;
         while (temp <= srcNum) {
             length++;
@@ -191,12 +206,29 @@ public class CyclesTheme {
         }
         if (i == (length / 2)) {
             System.out.printf("число %d является палиндромом", srcNum);
-        }
+        }*/
 
         System.out.println("\n\nЗадание №9 - Определение, является ли число счастливым");
         srcNum = 122311;
 
-        length = 0;
+        int sumFirst = 0;
+        int sumLast = 0;
+        for (i = 0; i < 6; i++) {
+            digit = srcNum % 10;
+            if (i < 3) {
+                sumLast += digit;
+            } else {
+                sumFirst += digit;
+            }
+            srcNum = srcNum / 10;
+        }
+        if (sumFirst == sumLast) {
+            System.out.println("number is happy");
+        } else {
+            System.out.println("number is unhappy");
+        }
+
+        /*int length = 0;
         temp = 1;
         while (temp <= srcNum) {
             length++;
@@ -226,7 +258,7 @@ public class CyclesTheme {
         if (sumFirstThreeNumber == sumLastThreeNumber) {
             System.out.printf("сумма первых трех цифр - %d \nсумма последних трех цифр - %d\n" +
                     "число %d является счастливым", sumFirstThreeNumber, sumLastThreeNumber, srcNum);
-        } else System.out.printf("число %d не является счастливым", srcNum);
+        } else System.out.printf("число %d не является счастливым", srcNum);*/
 
         /*String wordHappy = "125512";
         length = wordHappy.length();
@@ -261,10 +293,21 @@ public class CyclesTheme {
         System.out.printf("%s", Pifagor + "\n");
         for (i = startString; i <= endString; i += stepString) {
             for (int j = 1; j <= endString; j += stepString) {
-                System.out.printf("%3d", (i * j));
+                if (i * j != 1) {
+                    System.out.printf("%3d", (i * j));
+                } else {
+                    System.out.print("   ");
+                }
+                if (j == 1) {
+                    System.out.print("|");
+                }
+            }
+            if (i == 1) {
+                System.out.println("\n____________________________");
+            } else {
+                System.out.println();
             }
             numberOfString--;
-            System.out.println("");
         }
     }
 }
