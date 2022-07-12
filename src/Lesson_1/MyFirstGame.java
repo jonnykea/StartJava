@@ -8,14 +8,14 @@ public class MyFirstGame {
         int choiceComputer = (int) (Math.random() * 100) + 1;
         while (choiceComputer != choicePlayer) {
             if (choicePlayer < choiceComputer) {
-                System.out.printf("компьютер загадал число больше %d\n", choicePlayer);
+                System.out.println("компьютер загадал число больше " + choicePlayer);
                 lowRange = choicePlayer + 1;
             } else {
-                System.out.printf("компьютер загадал число меньше %d\n", choicePlayer);
+                System.out.println("компьютер загадал число меньше " + choicePlayer);
                 highRange = choicePlayer - 1;
             }
             choicePlayer = lowRange + (highRange - lowRange) / 2;
         }
-        System.out.printf("вы угадали число, которое загадал компьютер и ЭТО - %d%n", choiceComputer);
+        System.out.println("вы угадали число, которое загадал компьютер и ЭТО - " + choiceComputer);
     }
 }
