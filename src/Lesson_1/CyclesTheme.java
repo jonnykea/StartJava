@@ -131,37 +131,22 @@ public class CyclesTheme {
         } while (i++ < 4);
 
         System.out.print("\nЗадание №7 -  Отображение ASCII-символов");
-        for (char sign = 0; sign <= 47; sign++) {
-            if (sign % 2 != 0) {
-                System.out.printf("\n" + "код символа %3d символ %3c", (int) sign, sign);
+        for (char k = 0; k <= 47; k++) {
+            if (k % 2 != 0) {
+                System.out.printf("\n" + "код символа %3d символ %3c", (int) k, k);
             }
         }
-        for (char smallLetter = 'a'; smallLetter <= 'z'; smallLetter++) {
-            if (smallLetter % 2 == 0) {
-                System.out.printf("\n" + "код символа %3d символ %3c", (int) smallLetter, smallLetter);
+        for (char j = 'a'; j <= 'z'; j++) {
+            if (j % 2 == 0) {
+                System.out.printf("\n" + "код символа %3d символ %3c", (int) j, j);
             }
         }
 
-/*        String word = "1234321";
-        int length = word.length();
-        i = 0;
-        while (i < (length / 2)) {
-            if (word.charAt(i) != word.charAt(length - i - 1)) {
-                System.out.printf("число %s не является палиндромом", word);
-                break;
-            } else {
-                i++;
-            }
-        }
-        if (i == (length / 2)) {
-            System.out.printf("число %s является палиндромом", word);
-        }*/
         System.out.println("\n\nЗадание №8 - Проверка, является ли число палиндромом");
         srcNum = 1234321; //It is the number variable to be checked for palindrome
         digit = 0;
         int temp;
         int invertNum = 0;
-
         temp = srcNum;
         while (srcNum > 0) {
             digit = srcNum % 10;
@@ -173,126 +158,32 @@ public class CyclesTheme {
         else
             System.out.println("number is not palindrome - " + temp);
 
-
-        /*int length = 0;
-        long temp = 1;
-        while (temp <= srcNum) {
-            length++;
-            temp *= 10;
-        }
-
-        i = 0;
-        while (i < (length / 2)) {
-            int start = i;
-            int end = length - i - 1;
-
-            int poweredStart = 1;
-            for (int j = 1; j <= start; j++) {
-                poweredStart *= 10;
-            }
-            int poweredEnd = 1;
-            for (int j = 1; j <= end; j++) {
-                poweredEnd *= 10;
-            }
-            int startDigit = srcNum / poweredStart % 10;
-            int endDigit = srcNum / poweredEnd % 10;
-
-            if (startDigit != endDigit) {
-                System.out.printf("число %d не является палиндромом", srcNum);
-                break;
-            } else {
-                i++;
-            }
-        }
-        if (i == (length / 2)) {
-            System.out.printf("число %d является палиндромом", srcNum);
-        }*/
-
-        System.out.println("\n\nЗадание №9 - Определение, является ли число счастливым");
+        System.out.println("\nЗадание №9 - Определение, является ли число счастливым");
         srcNum = 122311;
-
-        int sumFirst = 0;
-        int sumLast = 0;
+        int sumTopHalf = 0;
+        int sumLowerHalf = 0;
         for (i = 0; i < 6; i++) {
             digit = srcNum % 10;
             if (i < 3) {
-                sumLast += digit;
+                sumLowerHalf += digit;
             } else {
-                sumFirst += digit;
+                sumTopHalf += digit;
             }
-            srcNum = srcNum / 10;
+            srcNum /= 10;
         }
-        if (sumFirst == sumLast) {
+        if (sumTopHalf == sumLowerHalf) {
             System.out.println("number is happy");
         } else {
             System.out.println("number is unhappy");
         }
 
-        /*int length = 0;
-        temp = 1;
-        while (temp <= srcNum) {
-            length++;
-            temp *= 10;
-        }
-        int sumFirstThreeNumber = 0;
-        int sumLastThreeNumber = 0;
-        i = 0;
-        while (i < (length / 2)) {
-            int start = i;
-            int end = length - i - 1;
-
-            int poweredStart = 1;
-            for (int j = 1; j <= start; j++) {
-                poweredStart *= 10;
-            }
-            int poweredEnd = 1;
-            for (int j = 1; j <= end; j++) {
-                poweredEnd *= 10;
-            }
-            int endDigit = srcNum / poweredStart % 10;
-            int startDigit = srcNum / poweredEnd % 10;
-            sumFirstThreeNumber += startDigit;
-            sumLastThreeNumber += endDigit;
-            i++;
-        }
-        if (sumFirstThreeNumber == sumLastThreeNumber) {
-            System.out.printf("сумма первых трех цифр - %d \nсумма последних трех цифр - %d\n" +
-                    "число %d является счастливым", sumFirstThreeNumber, sumLastThreeNumber, srcNum);
-        } else System.out.printf("число %d не является счастливым", srcNum);*/
-
-        /*String wordHappy = "125512";
-        length = wordHappy.length();
-        i = 0;
-        int sumFirstThreeNumber = 0;
-        int sumLastThreeNumber = 0;
-        while (i <= (length / 2)) {
-            sumFirstThreeNumber += wordHappy.charAt(i);
-            sumLastThreeNumber += wordHappy.charAt(length - i - 1);
-            i++;
-        }
-        if (sumFirstThreeNumber == sumLastThreeNumber) {
-            System.out.printf("первая тройка цифр - %s %s %s",
-                    wordHappy.charAt(0), wordHappy.charAt(1), wordHappy.charAt(2) + "\n");
-            System.out.printf("вторая тройка цифр - %s %s %s",
-                    wordHappy.charAt(5), wordHappy.charAt(4), wordHappy.charAt(3) + "\n");
-            System.out.printf("число %s является счастливым", wordHappy);
-        } else {
-            System.out.printf("первая тройка цифр - %s %s %s",
-                    wordHappy.charAt(0), wordHappy.charAt(1), wordHappy.charAt(2) + "\n");
-            System.out.printf("вторая тройка цифр - %s %s %s",
-                    wordHappy.charAt(5), wordHappy.charAt(4), wordHappy.charAt(3) + "\n");
-            System.out.printf("число %s неявляется счастливым", wordHappy);
-        }*/
-
         System.out.println("\n\nЗадание №10 - Вывод таблицы умножения Пифагора");
-        int startString = 1;
-        int endString = 9;
-        int numberOfString = 9;
-        int stepString = 1;
-        String Pifagor = "      ТАБЛИЦА ПИФАГОРА";
-        System.out.printf("%s", Pifagor + "\n");
-        for (i = startString; i <= endString; i += stepString) {
-            for (int j = 1; j <= endString; j += stepString) {
+        int startRow = 1;
+        int endRow = 9;
+        String pifagor = "      ТАБЛИЦА ПИФАГОРА";
+        System.out.printf("%s", pifagor + "\n");
+        for (i = startRow; i <= endRow; i++) {
+            for (int j = 1; j <= endRow; j++) {
                 if (i * j != 1) {
                     System.out.printf("%3d", (i * j));
                 } else {
@@ -307,7 +198,6 @@ public class CyclesTheme {
             } else {
                 System.out.println();
             }
-            numberOfString--;
         }
     }
 }
