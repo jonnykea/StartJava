@@ -131,23 +131,22 @@ public class CyclesTheme {
         } while (i++ < 4);
 
         System.out.print("\nЗадание №7 -  Отображение ASCII-символов");
-        for (char k = 0; k <= 47; k++) {
-            if (k % 2 != 0) {
-                System.out.printf("\n" + "код символа %3d символ %3c", (int) k, k);
+        for (i = 0; i <= 47; i++) {
+            if (i % 2 != 0) {
+                System.out.printf("\n" + "код символа %3d символ %3c", i, (char) i);
             }
         }
-        for (char j = 'a'; j <= 'z'; j++) {
-            if (j % 2 == 0) {
-                System.out.printf("\n" + "код символа %3d символ %3c", (int) j, j);
+        for (i = 'a'; i <= 'z'; i++) {
+            if (i % 2 == 0) {
+                System.out.printf("\n" + "код символа %3d символ %3c", i, (char) i);
             }
         }
 
         System.out.println("\n\nЗадание №8 - Проверка, является ли число палиндромом");
         srcNum = 1234321; //It is the number variable to be checked for palindrome
         digit = 0;
-        int temp;
+        int temp = srcNum;
         int invertNum = 0;
-        temp = srcNum;
         while (srcNum > 0) {
             digit = srcNum % 10;
             invertNum = (invertNum * 10) + digit;
@@ -159,25 +158,27 @@ public class CyclesTheme {
             System.out.println("number is not palindrome - " + temp);
 
         System.out.println("\nЗадание №9 - Определение, является ли число счастливым");
-        srcNum = 122311;
+        srcNum = 212411;
+        int srcNum1 = srcNum;
+        int num = 100000;
         int sumTopHalf = 0;
         int sumLowerHalf = 0;
-        for (i = 0; i < 6; i++) {
-            digit = srcNum % 10;
-            if (i < 3) {
-                sumLowerHalf += digit;
-            } else {
-                sumTopHalf += digit;
-            }
+        while (srcNum > 1000) {
+            int digitLast = srcNum % 10;
+            int digitFirst = (srcNum1 / num) % 10;
+            sumLowerHalf += digitLast;
+            sumTopHalf += digitFirst;
             srcNum /= 10;
+            num /= 10;
         }
+        System.out.println("sum of half lower digit = " + sumLowerHalf + "\nsum of half top digit = " + sumTopHalf);
         if (sumTopHalf == sumLowerHalf) {
-            System.out.println("number is happy");
+            System.out.println(srcNum + " - is happy");
         } else {
-            System.out.println("number is unhappy");
+            System.out.println(srcNum + " - is unhappy");
         }
 
-        System.out.println("\n\nЗадание №10 - Вывод таблицы умножения Пифагора");
+        System.out.println("\nЗадание №10 - Вывод таблицы умножения Пифагора");
         int startRow = 1;
         int endRow = 9;
         String pifagor = "      ТАБЛИЦА ПИФАГОРА";
