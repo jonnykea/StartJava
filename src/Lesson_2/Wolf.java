@@ -1,25 +1,69 @@
 package Lesson_2;
 
 public class Wolf {
-    String sex;
-    String nickname;
-    float weight;
-    int age;
-    String coatColor;
+    private String sex;
+    private String nickname;
+    private float weight;
+    private int age;
+    private String coatColor;
 
-   void going() {
-       System.out.println("Going");
-   }
+    String getSex() {
+        return sex;
+    }
 
-   void sitting(){
-       System.out.println("Sitting");
-   }
+    void setSex(String sex) {
+        this.sex = sex;
+    }
 
-   void howling() {
-       System.out.println("Howling");
-   }
+    String getNickname() {
+        return nickname;
+    }
 
-    void hunting() {
+    void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age > 8) {
+            System.out.println("incorrect age");
+        } else {
+            this.age = age;
+        }
+    }
+
+    String getCoatColor() {
+        return coatColor;
+    }
+
+    public void setCoatColor(String coatColor) {
+        this.coatColor = coatColor;
+    }
+
+    void go() {
+        System.out.println("Going");
+    }
+
+    void sit() {
+        System.out.println("Sitting");
+    }
+
+    void howl() {
+        System.out.println("Howling");
+    }
+
+    void hunt() {
         System.out.println("Hunting");
     }
 }

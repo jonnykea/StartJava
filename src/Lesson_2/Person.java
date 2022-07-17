@@ -11,15 +11,15 @@ public class Person {
         System.out.println("moving");
     }
 
-    String runway() {
+    String run() {
         return "running";
     }
 
-    void startSpeaking() {
+    void startSpeak() {
         System.out.println("my first word - mother");
     }
 
-    String learningJava() {
+    String learnJava() {
         return "don't disturb me i am learning JAVA";
     }
 }
