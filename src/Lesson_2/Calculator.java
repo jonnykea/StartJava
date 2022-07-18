@@ -28,9 +28,6 @@ public class Calculator {
             case '%':
                 result = a % b;
                 break;
-            default:
-                System.out.println("некорректное действие " + sign + ", доступные мат. действия: + - * / ^ %");
-                return;
         }
         System.out.println(a + " " + sign + " " + b + " = " + result);
     }

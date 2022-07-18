@@ -4,6 +4,7 @@ public class Player {
     private final String name;
 
     private int guess;
+
     public Player(String name) {
         this.name = name;
     }
@@ -22,7 +23,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player" + name;
+        return name;
     }
 }
 

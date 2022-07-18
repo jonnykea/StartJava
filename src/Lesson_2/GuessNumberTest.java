@@ -10,21 +10,21 @@ public class GuessNumberTest {
         Player player1 = new Player(scanner.next());
         System.out.print("Введите имя второго игрока ");
         Player player2 = new Player(scanner.next());
-        GuessNumber guessNumber = new GuessNumber(player1, player2);
+        GuessNumber game = new GuessNumber(player1, player2);
         do {
-            guessNumber.play();
+            game.play();
         }
-        while (isContinuePlaying());
+        while (isNext());
     }
 
-    public static boolean isContinuePlaying() {
-        Scanner playAgain = new Scanner(System.in);
+    private static boolean isNext() {
+
         System.out.print("Хотите сыграть еще раз? Введите yes или no... ");
         while (true) {
-            String answer = playAgain.next().toLowerCase();
+            String answer = scanner.next().toLowerCase();
             if (answer.equals("yes")) {
                 return true;
-            } else if (answer.equals("no")) {
+            } if (answer.equals("no")) {
                 return false;
             } else {
                 System.out.println("ввели некорректное слово");
