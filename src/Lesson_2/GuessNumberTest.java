@@ -18,7 +18,6 @@ public class GuessNumberTest {
     }
 
     private static boolean isNext() {
-
         System.out.print("Хотите сыграть еще раз? Введите yes или no... ");
         String answer = scanner.next().toLowerCase();
         while (!answer.equals("no")) {

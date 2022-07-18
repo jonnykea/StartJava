@@ -2,7 +2,6 @@ package Lesson_2;
 
 public class Player {
     private final String name;
-
     private int guess;
 
     public Player(String name) {

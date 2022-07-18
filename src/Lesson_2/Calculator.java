@@ -3,8 +3,8 @@ package Lesson_2;
 import java.util.Scanner;
 
 public class Calculator {
- char sign;
- int a, b, result;
+    char sign;
+    int a, b, result;
     public void action(int a, int b, char sign) {
         switch (sign) {
             case '+':
@@ -28,6 +28,9 @@ public class Calculator {
             case '%':
                 result = a % b;
                 break;
+            default:
+                System.out.println("некорректное действие " + sign + ", доступные мат. действия: + - * / ^ %");
+                return;
         }
         System.out.println(a + " " + sign + " " + b + " = " + result);
     }
