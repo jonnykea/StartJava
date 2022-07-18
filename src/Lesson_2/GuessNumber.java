@@ -19,7 +19,7 @@ public class GuessNumber {
             if (isGuessed(player1)) {
                 break;
             }
-            System.out.println("Ход переходит к второму игроку");
+            System.out.println("Ход переходит ко второму игроку");
             if (isGuessed(player2)) {
                 break;
             }
