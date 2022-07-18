@@ -20,16 +20,15 @@ public class GuessNumberTest {
     private static boolean isNext() {
 
         System.out.print("Хотите сыграть еще раз? Введите yes или no... ");
-        while (true) {
-            String answer = scanner.next().toLowerCase();
+        String answer = scanner.next().toLowerCase();
+        while (!answer.equals("no")) {
             if (answer.equals("yes")) {
                 return true;
-            } if (answer.equals("no")) {
-                return false;
-            } else {
-                System.out.println("ввели некорректное слово");
             }
+            System.out.println("ввели некорректное слово");
+            answer = scanner.next().toLowerCase();
         }
+        return false;
     }
 }
 
