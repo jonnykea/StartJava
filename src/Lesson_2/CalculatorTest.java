@@ -4,25 +4,32 @@ import java.util.Scanner;
 
 
 public class CalculatorTest {
+    static Scanner console = new Scanner(System.in);
+    static String answer;
+
     public static void main(String[] args) {
-        String answer = "";
         do {
-            Scanner action = new Scanner(System.in);
             System.out.print("Введите значения для переменных: a ");
-            int a = action.nextInt();
-
-            System.out.print("Введите значения для переменных:  b ");
-            int b = action.nextInt();
-
+            int a = console.nextInt();
             System.out.print("Введите действие над переменными, доступные мат. действия: + - * / ^ %: ");
-            char sign = action.next().charAt(0);
-            Calculator mathAction = new Calculator();
-            mathAction.action(a, b, sign);
+            char sign = console.next().charAt(0);
+            System.out.print("Введите значения для переменных:  b ");
+            int b = console.nextInt();
+            Calculator calculator = new Calculator();
+            calculator.calculate(a, b, sign);
+        } while (isNext());
+    }
 
-            Scanner actionElse = new Scanner(System.in);
-            System.out.print("Хотите продолжить или завершить вычисления? Введите yes или no... ");
-            answer = actionElse.next();
+    private static boolean isNext() {
+        System.out.print("Хотите сыграть еще раз? Введите yes или no... ");
+        answer = console.next().toLowerCase();
+        while (!answer.equals("no")) {
+            if (answer.equals("yes")) {
+                return true;
+            }
+            System.out.println("ввели некорректное слово. Введите yes или no...");
+            answer = console.next().toLowerCase();
         }
-        while (answer.equals("yes"));
+        return false;
     }
 }

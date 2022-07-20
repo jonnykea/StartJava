@@ -1,11 +1,9 @@
 package Lesson_2;
 
-import java.util.Scanner;
-
 public class Calculator {
     char sign;
     int a, b, result;
-    public void action(int a, int b, char sign) {
+    public void calculate(int a, int b, char sign) {
         switch (sign) {
             case '+':
                 result = a + b;

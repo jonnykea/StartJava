@@ -24,7 +24,7 @@ public class GuessNumberTest {
             if (answer.equals("yes")) {
                 return true;
             }
-            System.out.println("ввели некорректное слово");
+            System.out.println("ввели некорректное слово. Введите yes или no...");
             answer = scanner.next().toLowerCase();
         }
         return false;
