@@ -2,7 +2,6 @@ package Lesson_2;
 
 import java.util.Scanner;
 
-
 public class CalculatorTest {
     static Scanner console = new Scanner(System.in);
     static String answer;
