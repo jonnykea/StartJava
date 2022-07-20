@@ -6,7 +6,7 @@ public class GuessNumber {
     private final Player player1;
     private final Player player2;
     private final Scanner scanner = new Scanner(System.in);
-    private final int secretNumber = (int) (Math.random() * 100) + 1;
+    private int secretNumber;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -14,6 +14,7 @@ public class GuessNumber {
     }
 
     public void play() {
+        secretNumber = (int) (Math.random() * 100) + 1;
         while (true) {
             if (isGuessed(player1)) {
                 break;

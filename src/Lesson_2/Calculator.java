@@ -1,9 +1,8 @@
 package Lesson_2;
 
 public class Calculator {
-    char sign;
-    int a, b, result;
     public void calculate(int a, int b, char sign) {
+        int result;
         switch (sign) {
             case '+':
                 result = a + b;

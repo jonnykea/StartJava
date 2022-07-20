@@ -2,7 +2,7 @@ package Lesson_1;
 
 public class VariablesTheme {
     public static void main(String[] args) {
-        System.out.println("Задание №1 - Создание переменных и вывод их значений на консоль");
+        System.out.println("Задание №1 - Создание переменных и вывод их значений ий на консоль");
         byte numberOfCores = 4;
         short memoryCapacity = 8000;
         int hddCapacity = 1_000_000;
@@ -113,8 +113,8 @@ public class VariablesTheme {
         int hundred = srcNumber / 100;
         int tens = (srcNumber / 10) % 10;
         int ones = srcNumber % 10;
-        System.out.println(" Число - 123 содержит: " + "\n" + " сотен    " + hundred + "\n" + " дестков  "
-                + tens + "\n" + " единиц   " + ones + "\n");
+        System.out.println("Число - 123 содержит: " + "\n" + "сотен    " + hundred + "\n" + "десятков  "
+                + tens + "\n" + "единиц   " + ones + "\n");
 
         System.out.println("Задание №10 - Преобразование секунд из 86399");
         int srcSeconds = 86399;
