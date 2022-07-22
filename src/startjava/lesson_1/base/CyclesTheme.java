@@ -1,4 +1,3 @@
-package Lesson_1;
 
 public class CyclesTheme {
     public static void main(String[] args) {

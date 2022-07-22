@@ -1,4 +1,6 @@
-package Lesson_2;
+package startjava.lesson_2_3.guess;
+
+import startjava.lesson_2_3.person.Player;
 
 import java.util.Scanner;
 
