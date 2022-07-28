@@ -2,7 +2,7 @@ package com.startjava.lesson_2_3_4.array;
 
 public class ArrayTheme {
     public static void main(String[] args) {
-        System.out.println("Task 1 - Reverse of massive [1,7] [7,1]");
+        System.out.println("Task 1 - Reverse of massive [1,7] in [7,1]");
         int length = 7;
         int[] intMassive = new int[length];
         fillMassiveInt(intMassive, 7, 1);
