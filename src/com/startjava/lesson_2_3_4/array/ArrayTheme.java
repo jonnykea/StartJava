@@ -91,13 +91,11 @@ public class ArrayTheme {
         int j = 0;
         String[] B = new String[4];
         while (i < A.length) {
-            if (A[i].isBlank()) {
-                i++;
-            } else {
+            if (!A[i].isBlank()) {
                 System.arraycopy(A, i, B, j, 1);
                 j++;
-                i++;
             }
+            i++;
         }
         System.out.println("\nArray is copied without 'null', length - " + B.length);
         for (String num : B) {
