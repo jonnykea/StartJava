@@ -84,12 +84,19 @@ public class ArrayTheme {
         System.out.println("\n\nTask 6 - Shift elements of array");
         String[] A = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
         System.out.println("Original array, length - " + A.length);
+        int i = 0;
         for (String num : A) {
             System.out.print(num + " ");
         }
-        int i = 0;
+        int lengthArrayB = 0;
+        for (i = 0; i < A.length; i++) {
+            if (!A[i].isEmpty()) {
+                lengthArrayB++;
+            }
+        }
+        String[] B = new String[lengthArrayB];
         int j = 0;
-        String[] B = new String[4];
+        i = 0;
         while (i < A.length) {
             if (!A[i].isBlank()) {
                 System.arraycopy(A, i, B, j, 1);
@@ -97,12 +104,11 @@ public class ArrayTheme {
             }
             i++;
         }
-        System.out.println("\nArray is copied without 'null', length - " + B.length);
+        System.out.println("\nArray is copied without 'null', length - " + lengthArrayB);
         for (String num : B) {
             System.out.print(num + " ");
         }
     }
-
 
     public static void fillMassiveInt(int[] array, int topLimit, int lowLimit) {
         System.out.println("New massive is created random, length - " + array.length);
