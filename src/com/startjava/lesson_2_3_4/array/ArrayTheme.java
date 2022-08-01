@@ -3,20 +3,21 @@ package com.startjava.lesson_2_3_4.array;
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("Task 1 - Reverse of array [1,7] in [7,1]");
+        int length = 7;
         int[] intArray = {1, 2, 3, 4, 5, 6, 7};
         System.out.println("Original array");
         print(intArray);
         System.out.println("\nReverse array");
         int temp = 0;
-        for (int i = 0; i < intArray.length / 2; i++) {
-            temp = intArray[intArray.length - i - 1];
-            intArray[intArray.length - i - 1] = intArray[i];
+        for (int i = 0; i < length / 2; i++) {
+            temp = intArray[length - i - 1];
+            intArray[length - i - 1] = intArray[i];
             intArray[i] = temp;
         }
         print(intArray);
 
         System.out.println("\n\nTask 2 - Display of array product  [0,9] except 0,9");
-        int length = 10;
+        length = 10;
         intArray = new int[length];
         for (int i = 0; i < length; i++) {
             intArray[i] = i;
@@ -24,7 +25,8 @@ public class ArrayTheme {
         int product = 1;
         for (int i = 1; i < length - 1; i++) {
             product *= intArray[i];
-            System.out.print(i == length - 2 ? (intArray[i] + " = ") : (intArray[i] + " * "));
+            System.out.print(intArray[i]);
+            System.out.print(i == length - 2 ? (" = ") : (" * "));
         }
         System.out.print(product);
 
@@ -35,48 +37,35 @@ public class ArrayTheme {
             doubleArray[i] = Math.random();
         }
         System.out.println("Original array");
-        int counter = 8;
-        for (double num : doubleArray) {
-            System.out.printf("%.2f ", num);
-            counter--;
-            if (counter == 0) {
-                System.out.println();
-            }
-        }
+        double middleCell = doubleArray[length / 2];
+       print(doubleArray,8);
         for (int i = 0; i < length; i++) {
-            if (doubleArray[i] > doubleArray[(length / 2)]) {
+            if (doubleArray[i] > middleCell) {
                 doubleArray[i] = 0;
             }
         }
         System.out.println("\nChanged array");
-        counter = 7;
-        for (double num : doubleArray) {
-            System.out.printf("%.2f ", num);
-            counter--;
-            if (counter == 0) {
-                System.out.println();
-            }
-        }
+        print(doubleArray,8);
 
         System.out.println("\n\nTask 4 - Display elements like stairsteps in reverse order");
         int index = 0;
-        char[] arrayChar = new char[15];
+        char[] charArray = new char[15];
         for (char i = 'L'; i <= 'Z'; i++) {
-            arrayChar[index] = i;
+            charArray[index] = i;
             index++;
         }
         for (int i = 14; i >= 0; i--) {
             for (int j = 14; j >= i; j--) {
-                System.out.print(arrayChar[j] + " ");
+                System.out.print(charArray[j] + " ");
             }
             System.out.println();
         }
 
         System.out.println("\nTask 5 - Generate unique elements [60,100]");
         intArray = new int[41];
-        fillMassiveInt(intArray, 100, 60);
+        fillArrayInt(intArray, 100, 60);
         sortBubble(intArray);
-        counter = 10;
+        int counter = 10;
         for (int num : intArray) {
             System.out.printf("%3d ", num);
             counter--;
@@ -87,64 +76,64 @@ public class ArrayTheme {
         }
 
         System.out.println("\n\nTask 6 - Shift elements of array");
-        String[] A = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
-        System.out.println("Original array, length - " + A.length);
+        String[] originalArray = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
+        System.out.println("Original array, length - " + originalArray.length);
         int i = 0;
-        for (String num : A) {
+        for (String num : originalArray) {
             System.out.print(num + " ");
         }
         int lengthArrayB = 0;
-        for (i = 0; i < A.length; i++) {
-            if (!A[i].isEmpty()) {
+        for (i = 0; i < originalArray.length; i++) {
+            if (!originalArray[i].isEmpty()) {
                 lengthArrayB++;
             }
         }
-        String[] B = new String[lengthArrayB];
+        String[] copiedArray = new String[lengthArrayB];
         int j = 0;
         i = 0;
-        while (i < A.length) {
-            if (!A[i].isBlank()) {
-                System.arraycopy(A, i, B, j, 1);
+        while (i < originalArray.length) {
+            if (!originalArray[i].isBlank()) {
+                System.arraycopy(originalArray, i, copiedArray, j, 1);
                 j++;
             }
             i++;
         }
         System.out.println("\nArray is copied without 'null', length - " + lengthArrayB);
-        for (String num : B) {
+        for (String num : copiedArray) {
             System.out.print(num + " ");
         }
     }
 
-    public static void fillMassiveInt(int[] array, int topLimit, int lowLimit) {
+    public static void fillArrayInt(int[] array, int topLimit, int lowLimit) {
         System.out.println("New massive is created random, length - " + array.length);
         int i = 0;
         int max = topLimit - lowLimit;
         while (i < array.length) {
             int randomNum = lowLimit + (int) (Math.random() * (max + 1));
-            array[i] = randomNum;
-            boolean isEqual = true;
+            boolean unique = true;
             for (int j = 0; j < i; j++) {
-                if (Math.abs(array[i]) == Math.abs(array[j])) {
-                    isEqual = false;
+                if (randomNum == array[j]) {
+                    unique = false;
                     break;
                 }
             }
-            if (isEqual) {
+            if (unique) {
+                array[i] = randomNum;
                 i++;
             }
         }
     }
 
     private static void sortBubble(int[] array) {
-        boolean isSort = false;
-        while (!isSort) {
-            isSort = true;
+        boolean isAssorted = false;
+        while (!isAssorted) {
+            isAssorted = true;
             for (int j = 1; j < array.length; j++) {
-                if (Math.abs(array[j - 1]) > Math.abs(array[j])) {
+                if (array[j - 1] > array[j]) {
                     int tmp = array[j - 1];
                     array[j - 1] = array[j];
                     array[j] = tmp;
-                    isSort = false;
+                    isAssorted = false;
                 }
             }
         }
@@ -153,6 +142,16 @@ public class ArrayTheme {
     private static void print(int[] array) {
         for (int num : array) {
             System.out.print(num + " ");
+        }
+    }
+
+    private static void print(double[] array, int counter) {
+        for (double num : array) {
+            System.out.printf("%.2f ", num);
+            counter--;
+            if (counter == 0) {
+                System.out.println();
+            }
         }
     }
 }
