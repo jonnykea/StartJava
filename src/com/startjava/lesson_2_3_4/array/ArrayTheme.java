@@ -121,6 +121,19 @@ public class ArrayTheme {
         }
     }
 
+    private static void sortBubble(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 1; j < array.length; j++) {
+                if (array[j - 1] > array[j]) {
+                    int tmp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = tmp;
+                }
+            }
+        }
+    }
+
+
     public static void fillArrayInt(int[] array, int topLimit, int lowLimit) {
         System.out.println("New massive is created random, length - " + array.length);
         int i = 0;
