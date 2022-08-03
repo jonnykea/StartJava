@@ -26,7 +26,7 @@ public class ArrayTheme {
         for (int i = 1; i < length - 1; i++) {
             product *= intArray[i];
             System.out.print(intArray[i]);
-            System.out.print(i == length - 2 ? (" = ") : (" * "));
+            System.out.print(intArray[i] + i == length - 2 ? (" = ") : (" * "));
         }
         System.out.print(product);
 
@@ -38,14 +38,14 @@ public class ArrayTheme {
         }
         System.out.println("Original array");
         double middleCell = doubleArray[length / 2];
-       print(doubleArray,8);
+        print(doubleArray, 8);
         for (int i = 0; i < length; i++) {
             if (doubleArray[i] > middleCell) {
                 doubleArray[i] = 0;
             }
         }
         System.out.println("\nChanged array");
-        print(doubleArray,8);
+        print(doubleArray, 8);
 
         System.out.println("\n\nTask 4 - Display elements like stairsteps in reverse order");
         int index = 0;
@@ -76,30 +76,47 @@ public class ArrayTheme {
         }
 
         System.out.println("\n\nTask 6 - Shift elements of array");
-        String[] originalArray = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
-        System.out.println("Original array, length - " + originalArray.length);
-        int i = 0;
-        for (String num : originalArray) {
+        String[] srcArray = {"", "AA", "", "", "BBB", "C", "", "DDDD"};
+        System.out.println("Original array, length - " + srcArray.length);
+        for (String num : srcArray) {
             System.out.print(num + " ");
         }
         int lengthArrayB = 0;
-        for (i = 0; i < originalArray.length; i++) {
-            if (!originalArray[i].isEmpty()) {
+        for (int i = 0; i < srcArray.length; i++) {
+            if (!srcArray[i].isEmpty()) {
                 lengthArrayB++;
             }
         }
-        String[] copiedArray = new String[lengthArrayB];
-        int j = 0;
-        i = 0;
-        while (i < originalArray.length) {
-            if (!originalArray[i].isBlank()) {
-                System.arraycopy(originalArray, i, copiedArray, j, 1);
-                j++;
+        String[] dstArray = new String[lengthArrayB];
+        int startSrc = 0;
+        int endSrc = 0;
+        int startDst = 0;
+        int sizeToCopy;
+        boolean wasAnyNotBlank = false;
+        for (int i = 0; i < srcArray.length; i++) {
+            if (srcArray[i].isBlank()) {
+                if (wasAnyNotBlank) {
+                    sizeToCopy = endSrc - startSrc + 1;
+                    System.arraycopy(srcArray, startSrc, dstArray, startDst, sizeToCopy);
+                    startDst += sizeToCopy;
+                    wasAnyNotBlank = false;
+                }
+            } else { // if not blank
+                if (!wasAnyNotBlank) {
+                    wasAnyNotBlank = true;
+                    startSrc = i;
+                }
+                endSrc = i;
             }
-            i++;
         }
+        if (wasAnyNotBlank) {
+            sizeToCopy = endSrc - startSrc + 1;
+            System.arraycopy(srcArray, startSrc, dstArray, startDst, sizeToCopy);
+        }
+
         System.out.println("\nArray is copied without 'null', length - " + lengthArrayB);
-        for (String num : copiedArray) {
+
+        for (String num : dstArray) {
             System.out.print(num + " ");
         }
     }
@@ -133,7 +150,6 @@ public class ArrayTheme {
                     int tmp = array[j - 1];
                     array[j - 1] = array[j];
                     array[j] = tmp;
-                    isAssorted = false;
                 }
             }
         }
