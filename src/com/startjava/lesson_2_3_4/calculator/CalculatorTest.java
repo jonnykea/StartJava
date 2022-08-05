@@ -2,18 +2,21 @@ package com.startjava.lesson_2_3_4.calculator;
 
 import java.util.Scanner;
 
+import static java.lang.Integer.parseInt;
+
 public class CalculatorTest {
     static Scanner console = new Scanner(System.in);
     static String answer;
 
     public static void main(String[] args) {
         do {
-            System.out.print("Введите значения для переменных: a ");
-            int a = console.nextInt();
-            System.out.print("Введите действие над переменными, доступные мат. действия: + - * / ^ %: ");
-            char sign = console.next().charAt(0);
-            System.out.print("Введите значения для переменных:  b ");
-            int b = console.nextInt();
+            System.out.print("Введите математическое выражение, например 5 * 10 " +
+                    "\nдоступные мат. действия: + - * / ^ %: ");
+            String expression = console.nextLine();
+            String[] arrayMath = expression.split(" ");
+            int a = parseInt(arrayMath[0]);
+            String sign = arrayMath[1];
+            int b = parseInt(arrayMath[2]);
             Calculator calculator = new Calculator();
             calculator.calculate(a, b, sign);
         } while (isNext());
@@ -21,7 +24,7 @@ public class CalculatorTest {
 
     private static boolean isNext() {
         System.out.print("Хотите сыграть еще раз? Введите yes или no... ");
-        answer = console.next().toLowerCase();
+        answer = console.nextLine().toLowerCase();
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
                 return true;

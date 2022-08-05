@@ -1,28 +1,25 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    public void calculate(int a, int b, char sign) {
+    public void calculate(int a, int b, String sign) {
         int result;
         switch (sign) {
-            case '+':
+            case "+":
                 result = a + b;
                 break;
-            case '-':
+            case "-":
                 result = a - b;
                 break;
-            case '*':
+            case "*":
                 result = a * b;
                 break;
-            case '/':
+            case "/":
                 result = a / b;
                 break;
-            case '^':
-                result = 1;
-                for (int j = 1; j <= b; j++) {
-                    result *= a;
-                }
+            case "^":
+                result = (int)Math.pow(a,b);
                 break;
-            case '%':
+            case "%":
                 result = a % b;
                 break;
             default:

@@ -13,14 +13,19 @@ public class GuessNumberTest {
         System.out.print("Введите имя второго игрока ");
         Player player2 = new Player(scanner.next());
         GuessNumber game = new GuessNumber(player1, player2);
+
+        System.out.println("У каждого игрока по 10 попыток ");
         do {
+            player1.init();
+            player2.init();
             game.play();
+
         }
         while (isNext());
     }
 
     private static boolean isNext() {
-        System.out.print("Хотите сыграть еще раз? Введите yes или no... ");
+        System.out.print("\nХотите сыграть еще раз? Введите yes или no... ");
         String answer = scanner.next().toLowerCase();
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {

@@ -18,25 +18,29 @@ public class GuessNumber {
     public void play() {
         secretNumber = (int) (Math.random() * 100) + 1;
         while (true) {
-            if (isGuessed(player1)) {
+            if (playTurn(player1)) {
                 break;
             }
-            System.out.println("Ход переходит ко второму игроку");
-            if (isGuessed(player2)) {
+            System.out.println("переход хода");
+            if (playTurn(player2)) {
                 break;
             }
-            System.out.println("Ход переходит к первому игроку");
+            if (isNoAttemptLeft()) {
+                System.out.println("Игра окончена ((( попыток больше нет");
+                break;
+            }
+            System.out.println("переход хода");
         }
     }
 
     private boolean isGuessed(Player player) {
-        System.out.print(player +
-                " - угадайте значение, которое загадал компьютер от 1 до 100 -?  ");
+        System.out.print("\n" + player + " - угадайте значение, которое загадал компьютер от 1 до 100 -?  ");
         player.setGuess(scanner.nextInt());
         boolean isWinner = compareNumber(player.getGuess());
         if (isWinner) {
             System.out.println("У нас есть победитель!!!");
-            System.out.println("Победитель - " + player + ", загаданное число - " + secretNumber);
+            System.out.println("Игрок - " + player + " угадал число - " + secretNumber + " c "
+                    + player.getCountOfAttempts() + " попытки");
         }
         return isWinner;
     }

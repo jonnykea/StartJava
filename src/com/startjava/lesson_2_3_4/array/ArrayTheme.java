@@ -3,21 +3,20 @@ package com.startjava.lesson_2_3_4.array;
 public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("Task 1 - Reverse of array [1,7] in [7,1]");
-        int length = 7;
         int[] intArray = {1, 2, 3, 4, 5, 6, 7};
         System.out.println("Original array");
         print(intArray);
         System.out.println("\nReverse array");
         int temp = 0;
-        for (int i = 0; i < length / 2; i++) {
-            temp = intArray[length - i - 1];
-            intArray[length - i - 1] = intArray[i];
+        for (int i = 0; i < intArray.length / 2; i++) {
+            temp = intArray[intArray.length - i - 1];
+            intArray[intArray.length - i - 1] = intArray[i];
             intArray[i] = temp;
         }
         print(intArray);
 
         System.out.println("\n\nTask 2 - Display of array product  [0,9] except 0,9");
-        length = 10;
+        int length = 10;
         intArray = new int[length];
         for (int i = 0; i < length; i++) {
             intArray[i] = i;
@@ -25,8 +24,7 @@ public class ArrayTheme {
         int product = 1;
         for (int i = 1; i < length - 1; i++) {
             product *= intArray[i];
-            System.out.print(intArray[i]);
-            System.out.print(intArray[i] + i == length - 2 ? (" = ") : (" * "));
+            System.out.print(intArray[i] + (i == length - 2 ? (" = ") : (" * ")));
         }
         System.out.print(product);
 
@@ -81,42 +79,39 @@ public class ArrayTheme {
         for (String num : srcArray) {
             System.out.print(num + " ");
         }
-        int lengthArrayB = 0;
-        for (int i = 0; i < srcArray.length; i++) {
-            if (!srcArray[i].isEmpty()) {
-                lengthArrayB++;
+        int lengthDstArray = 0;
+        for (String s : srcArray) {
+            if (!s.isEmpty()) {
+                lengthDstArray++;
             }
         }
-        String[] dstArray = new String[lengthArrayB];
-        int startSrc = 0;
-        int endSrc = 0;
-        int startDst = 0;
-        int sizeToCopy;
+        String[] dest = new String[lengthDstArray];
+        int srcStartPos = 0;
+        int srcEndPos = 0;
+        int destPos = 0;
         boolean wasAnyNotBlank = false;
         for (int i = 0; i < srcArray.length; i++) {
             if (srcArray[i].isBlank()) {
                 if (wasAnyNotBlank) {
-                    sizeToCopy = endSrc - startSrc + 1;
-                    System.arraycopy(srcArray, startSrc, dstArray, startDst, sizeToCopy);
-                    startDst += sizeToCopy;
+                    length = srcEndPos - srcStartPos + 1;
+                    System.arraycopy(srcArray, srcStartPos, dest, destPos, length);
+                    destPos += length;
                     wasAnyNotBlank = false;
                 }
             } else { // if not blank
                 if (!wasAnyNotBlank) {
                     wasAnyNotBlank = true;
-                    startSrc = i;
+                    srcStartPos = i;
                 }
-                endSrc = i;
+                srcEndPos = i;
             }
         }
         if (wasAnyNotBlank) {
-            sizeToCopy = endSrc - startSrc + 1;
-            System.arraycopy(srcArray, startSrc, dstArray, startDst, sizeToCopy);
+            length = srcEndPos - srcStartPos + 1;
+            System.arraycopy(srcArray, srcStartPos, dest, destPos, length);
         }
-
-        System.out.println("\nArray is copied without 'null', length - " + lengthArrayB);
-
-        for (String num : dstArray) {
+        System.out.println("\nArray is copied without 'null', length - " + lengthDstArray);
+        for (String num : dest) {
             System.out.print(num + " ");
         }
     }
