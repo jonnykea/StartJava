@@ -19,7 +19,6 @@ public class GuessNumberTest {
             player1.init();
             player2.init();
             game.play();
-
         }
         while (isNext());
     }
