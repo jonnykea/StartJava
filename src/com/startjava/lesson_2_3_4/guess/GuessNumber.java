@@ -33,6 +33,24 @@ public class GuessNumber {
         }
     }
 
+    private boolean isNoAttemptLeft() {
+        return !player1.isAttemptsLeft() && !player2.isAttemptsLeft();
+    }
+
+    // Returns true if game is ended
+    private boolean playTurn(Player player) {
+        System.out.print("попытка - " + (player.getCountOfAttempts() + 1) + " у " + player);
+        if (isGuessed(player)) {
+            player1.printAttempts();
+            player2.printAttempts();
+            return true;
+        }
+        if (!player.isAttemptsLeft()) {
+            System.out.println("У " + player + " закончились попытки");
+        }
+        return false;
+    }
+
     private boolean isGuessed(Player player) {
         System.out.print("\n" + player + " - угадайте значение, которое загадал компьютер от 1 до 100 -?  ");
         player.setGuess(scanner.nextInt());

@@ -149,20 +149,6 @@ public class ArrayTheme {
         }
     }
 
-    private static void sortBubble(int[] array) {
-        boolean isAssorted = false;
-        while (!isAssorted) {
-            isAssorted = true;
-            for (int j = 1; j < array.length; j++) {
-                if (array[j - 1] > array[j]) {
-                    int tmp = array[j - 1];
-                    array[j - 1] = array[j];
-                    array[j] = tmp;
-                }
-            }
-        }
-    }
-
     private static void print(int[] array) {
         for (int num : array) {
             System.out.print(num + " ");
