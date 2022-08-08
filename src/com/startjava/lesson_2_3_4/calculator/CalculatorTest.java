@@ -7,9 +7,9 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         do {
-            System.out.print("Введите математическое выражение, например 5 * 10 " +
+            System.out.print("Введите математическое выражение, например 5*10 " +
                     "\nдоступные мат. действия: + - * / ^ %: \n");
-            String expression = console.nextLine();
+            String expression = console.next();
             Calculator calculator = new Calculator();
             Integer result = calculator.calculate(expression);
             if (result != null) {
@@ -18,10 +18,9 @@ public class CalculatorTest {
         } while (isNext());
     }
 
-    private static boolean isNext() {
-        String answer;
+    private static boolean isNext(){
         System.out.println("\nХотите сыграть еще раз? Введите yes или no... ");
-        answer = console.nextLine().toLowerCase();
+        String answer = console.next().toLowerCase();
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
                 return true;

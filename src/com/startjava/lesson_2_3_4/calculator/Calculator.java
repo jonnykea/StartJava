@@ -3,35 +3,29 @@ package com.startjava.lesson_2_3_4.calculator;
 import static java.lang.Integer.parseInt;
 
 public class Calculator {
+
     public Integer calculate(String expression) {
-        String[] arrayMath = expression.split(" ");
-        int a = parseInt(arrayMath[0]);
-        String sign = arrayMath[1];
-        int b = parseInt(arrayMath[2]);
-        Integer result = null;
+        String[] partsExpression = expression.split("");
+        int a = parseInt(partsExpression[0]);
+        char sign = partsExpression[1].charAt(0);
+        int b = parseInt(partsExpression[2]);
         switch (sign) {
-            case "+":
-                result = a + b;
-                break;
-            case "-":
-                result = a - b;
-                break;
-            case "*":
-                result = a * b;
-                break;
-            case "/":
-                result = a / b;
-                break;
-            case "^":
-                result = (int) Math.pow(a, b);
-                break;
-            case "%":
-                result = a % b;
-                break;
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                return a / b;
+            case '^':
+                return (int) Math.pow(a, b);
+            case '%':
+                return a % b;
             default:
                 System.out.println("некорректное действие - " + sign + "  доступные мат. действия: + - * / ^ %");
         }
-        return result;
+        return 0;
     }
 }
 
