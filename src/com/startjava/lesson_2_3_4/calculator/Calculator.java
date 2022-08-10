@@ -1,15 +1,13 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-import static java.lang.Integer.parseInt;
-
 public class Calculator {
     public static int calculate(String expression) {
         String[] partsExpression = expression.split("");
         int a;
         int b;
         try {
-            a = parseInt(partsExpression[0]);
-            b = parseInt(partsExpression[2]);
+            a = Integer.parseInt(partsExpression[0]);
+            b = Integer.parseInt(partsExpression[2]);
         } catch (Exception e){
             throw new IllegalArgumentException("Ошибка - число не может быть <= 0, числа должны быть > 0 ");
         }
