@@ -12,16 +12,16 @@ public class CalculatorTest {
                     доступные мат. действия: + - * / ^ %:\s
                     """);
             String expression = console.next();
-            Calculator calculator = new Calculator();
-            Integer result = calculator.calculate(expression);
-            if (result != null) {
-                System.out.print(result);
+            try {
+                System.out.println(Calculator.calculate(expression));
+            } catch (Exception e){
+                System.out.println("Ошибка - число не может быть <= 0, числа должны быть > 0 ");
             }
         } while (isNext());
     }
 
     private static boolean isNext(){
-        System.out.println("\nХотите сыграть еще раз? Введите yes или no... ");
+        System.out.println("\nХотите ввести мат. выражение еще раз? Введите yes или no... ");
         String answer = console.next().toLowerCase();
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
