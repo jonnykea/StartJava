@@ -14,13 +14,15 @@ public class CalculatorTest {
             String expression = console.next();
             try {
                 System.out.println(Calculator.calculate(expression));
-            } catch (Exception e){
-                System.out.println("Ошибка - число не может быть <= 0, числа должны быть > 0 ");
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Ошибка - некорректный ввод ");
             }
         } while (isNext());
     }
 
-    private static boolean isNext(){
+    private static boolean isNext() {
         System.out.println("\nХотите ввести мат. выражение еще раз? Введите yes или no... ");
         String answer = console.next().toLowerCase();
         while (!answer.equals("no")) {
