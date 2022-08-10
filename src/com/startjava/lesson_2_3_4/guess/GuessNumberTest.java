@@ -1,7 +1,5 @@
 package com.startjava.lesson_2_3_4.guess;
 
-import com.startjava.lesson_2_3_4.person.Player;
-
 import java.util.Scanner;
 
 public class GuessNumberTest {
@@ -16,8 +14,6 @@ public class GuessNumberTest {
 
         System.out.println("У каждого игрока по 10 попыток ");
         do {
-            player1.init();
-            player2.init();
             game.play();
         }
         while (isNext());

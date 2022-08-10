@@ -1,24 +1,19 @@
-package com.startjava.lesson_2_3_4.person;
+package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
 
 public class Player {
     public static final int MAX_NUM_OF_ATTEMPTS = 10;
     private final String name;
-    private int countOfAttempts = 0;
+    private int countOfAttempts;
     private final int[] attempts = new int[MAX_NUM_OF_ATTEMPTS];
 
-    @Override
-    public String toString() {
-        return name;
+    public Player(String name) {
+        this.name = name;
     }
 
     public int getCountOfAttempts() {
         return countOfAttempts;
-    }
-
-    public Player(String name) {
-        this.name = name;
     }
 
     public int getGuess() {
@@ -33,7 +28,7 @@ public class Player {
         if (countOfAttempts == 0) {
             return;
         }
-        Arrays.fill(attempts, 0, getCountOfAttempts(), 0);
+        Arrays.fill(attempts, 0, countOfAttempts, 0);
         countOfAttempts = 0;
     }
 
@@ -48,6 +43,11 @@ public class Player {
             System.out.print(temp[i] + " ");
         }
         System.out.println();
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
 

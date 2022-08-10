@@ -7,8 +7,10 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         do {
-            System.out.print("Введите математическое выражение, например 5*10 " +
-                    "\nдоступные мат. действия: + - * / ^ %: \n");
+            System.out.print("""
+                    Введите математическое выражение, например 5*10\s
+                    доступные мат. действия: + - * / ^ %:\s
+                    """);
             String expression = console.next();
             Calculator calculator = new Calculator();
             Integer result = calculator.calculate(expression);

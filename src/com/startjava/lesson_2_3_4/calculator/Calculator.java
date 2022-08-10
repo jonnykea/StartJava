@@ -10,20 +10,25 @@ public class Calculator {
         char sign = partsExpression[1].charAt(0);
         int b = parseInt(partsExpression[2]);
         switch (sign) {
-            case '+':
+            case '+' -> {
                 return a + b;
-            case '-':
+            }
+            case '-' -> {
                 return a - b;
-            case '*':
+            }
+            case '*' -> {
                 return a * b;
-            case '/':
+            }
+            case '/' -> {
                 return a / b;
-            case '^':
+            }
+            case '^' -> {
                 return (int) Math.pow(a, b);
-            case '%':
+            }
+            case '%' -> {
                 return a % b;
-            default:
-                System.out.println("некорректное действие - " + sign + "  доступные мат. действия: + - * / ^ %");
+            }
+            default -> System.out.println("некорректное действие - " + sign + "  доступные мат. действия: + - * / ^ %");
         }
         return 0;
     }
