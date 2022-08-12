@@ -39,25 +39,25 @@ public class GuessNumber {
 
     // Returns true if game is ended
     private boolean playTurn(Player player) {
-        System.out.print("попытка - " + (player.getCountOfAttempts() + 1) + " у " + player);
+        System.out.print("попытка - " + (player.getCountOfAttempts() + 1) + " у " + player.getName());
         if (isGuessed(player)) {
-            player1.printAttempts();
-            player2.printAttempts();
+            System.out.println(player1);
+            System.out.println(player2);
             return true;
         }
         if (!player.isAttemptsLeft()) {
-            System.out.println("У " + player + " закончились попытки");
+            System.out.println("У " + player.getName() + " закончились попытки");
         }
         return false;
     }
 
     private boolean isGuessed(Player player) {
-        System.out.print("\n" + player + " - угадайте значение, которое загадал компьютер от 1 до 100 -?  ");
+        System.out.print("\n" + player.getName() + " - угадайте значение, которое загадал компьютер от 1 до 100 -?  ");
         player.setGuess(scanner.nextInt());
         boolean isWinner = compareNumber(player.getGuess());
         if (isWinner) {
             System.out.println("У нас есть победитель!!!");
-            System.out.println("Игрок - " + player + " угадал число - " + secretNumber + " c "
+            System.out.println("Игрок - " + player.getName() + " угадал число - " + secretNumber + " c "
                     + player.getCountOfAttempts() + " попытки");
         }
         return isWinner;

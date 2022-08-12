@@ -8,23 +8,21 @@ public class CalculatorTest {
     public static void main(String[] args) {
         do {
             System.out.print("""
-                    Введите математическое выражение, например 5*10\s
-                    доступные мат. действия: + - * / ^ %:\s
+                    Введите математическое выражение, доступные мат. действия: + - * / ^ %
+                    например: 5 * 10
                     """);
-            String expression = console.next();
+            String expression = console.nextLine();
             try {
                 System.out.println(Calculator.calculate(expression));
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
-            } catch (Exception e) {
-                System.out.println("Ошибка - некорректный ввод ");
             }
         } while (isNext());
     }
 
     private static boolean isNext() {
         System.out.println("\nХотите ввести мат. выражение еще раз? Введите yes или no... ");
-        String answer = console.next().toLowerCase();
+        String answer = console.nextLine().toLowerCase();
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
                 return true;

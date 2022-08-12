@@ -12,6 +12,10 @@ public class Player {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public int getCountOfAttempts() {
         return countOfAttempts;
     }
@@ -36,18 +40,13 @@ public class Player {
         return countOfAttempts < MAX_NUM_OF_ATTEMPTS;
     }
 
-    public void printAttempts() {
-        int[] temp = Arrays.copyOf(attempts, countOfAttempts);
-        System.out.print("Названные игроком " + name + " числа: ");
-        for (int i = 0; i < countOfAttempts; i++) {
-            System.out.print(temp[i] + " ");
-        }
-        System.out.println();
-    }
-
     @Override
     public String toString() {
-        return name;
+        String attemptsPlayer = "";
+        for (int i = 0; i < countOfAttempts; i++) {
+            attemptsPlayer += attempts[i] + " ";
+        }
+        return name + " попытки: " + attemptsPlayer;
     }
 }
 
