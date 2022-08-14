@@ -25,7 +25,12 @@ public class Player {
     }
 
     public void setGuess(int guess) {
-        attempts[countOfAttempts++] = guess;
+        if (guess > 0 && guess <= 100) {
+            attempts[countOfAttempts++] = guess;
+        } else {
+            System.out.println("Ошибка - значение не удовлетворяет условием игры \nВы потратили попытку");
+            countOfAttempts++;
+        }
     }
 
     public void init() {

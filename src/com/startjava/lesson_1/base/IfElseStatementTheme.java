@@ -122,7 +122,7 @@ public class IfElseStatementTheme {
         } else if (historyBall > 91) {
             markHistory = 5;
         }
-        //определение оценки в зависимости от бала "програмирование"
+        //определение оценки в зависимости от бала "программирование"
         if (programmingBall <= 60) {
             markProgramming = 2;
         } else if (programmingBall > 60 && programmingBall <= 73) {

@@ -1,6 +1,7 @@
 package com.startjava.lesson_2_3_4.array;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayTasks {
@@ -74,4 +75,8 @@ public class ArrayTasks {
         System.out.println("\nMax value by module in massive - " + max);
     }
 }
+
+
+
+
 

@@ -6,40 +6,29 @@ public class BookshelfTest {
     static Scanner console = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String command;
         Bookshelf bookshelf = new Bookshelf();
+        bookshelf.init();
+        String exit = "false";
         do {
-            bookshelf.actualization();
-            instruction();
-            command = console.next();
-            switch (command) {
-                case "1" -> bookshelf.print();
-                case "2" -> bookshelf.numberOfBooks();
-                case "3" -> bookshelf.freeSpace();
+            bookshelf.actualize();
+            showMenu();
+            String item = console.next();
+            switch (item) {
+                case "1" -> bookshelf.printBooks();
+                case "2" -> bookshelf.getNumberOfBooks();
+                case "3" -> bookshelf.getFreeSpace();
                 case "4" -> bookshelf.searchBook();
-                case "5" -> bookshelf.set();
+                case "5" -> bookshelf.addBook();
                 case "6" -> bookshelf.removeBook();
-                default -> System.out.println("Incorrect command " + command + " available commands : 1,2,3,4,5,6");
+                case "7" -> exit = "true";
+                default -> System.out.println("Incorrect command " + item + " available commands : 1,2,3,4,5,6,7");
             }
-            bookshelf.actualization();
-        } while (isNext());
-    }
-    private static boolean isNext() {
-        System.out.println("\nDo you want to execute any commands ? Write yes или no... ");
-        String answer = console.next().toLowerCase();
-        while (!answer.equals("no")) {
-            if (answer.equals("yes")) {
-                return true;
-            }
-            System.out.println("Incorrect command. Write yes или no...");
-            answer = console.next().toLowerCase();
-        }
-        return false;
+        } while (exit.equals("false"));
     }
 
-    public static void instruction() {
-        String instruction = """
-                
+    public static void showMenu() {
+        System.out.print("""
+                                
                 Press the number of command for execution:
                 1 - Get a list of books which are on the bookshelf
                 2 - Get the numbers of all books
@@ -47,7 +36,8 @@ public class BookshelfTest {
                 4 - Get the book by the title
                 5 - Add the book on the bookshelf
                 6 - Remove the book
-                """;
-        System.out.print(instruction);
+                7 - If you want to leave this program
+                
+                """);
     }
 }

@@ -4,14 +4,10 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Bookshelf {
-    static Scanner console = new Scanner(System.in);
-    final static int NUM_OF_BOOKS = 10;
-    int indexBookshelf;
-    static Book[] books = new Book[NUM_OF_BOOKS];
-
-    public Bookshelf (){
-        init();
-    }
+    private static final Scanner console = new Scanner(System.in);
+    private final static int NUM_OF_BOOKS = 10;
+    private int indexBookshelf;
+    private static final Book[] books = new Book[NUM_OF_BOOKS];
 
     public void init() {
         books[indexBookshelf++] = new Book("Pushkin", "Fairy about Saltan's king", "1831");
@@ -20,7 +16,7 @@ public class Bookshelf {
         books[indexBookshelf++] = new Book("Lev Tolstoy", "War and Peace", "1873");
     }
 
-    public void actualization() {
+    public void actualize() {
         int length = 0;
         for (int i = 0; i < books.length; i++) {
             if (books[i] != null) {
@@ -42,31 +38,34 @@ public class Bookshelf {
         System.arraycopy(temp, 0, books, 0, length);
     }
 
-    public void freeSpace() {
+    public void getFreeSpace() {
         int freeSpace = (NUM_OF_BOOKS) - indexBookshelf;
         System.out.println("Numbers of empty cells - " + freeSpace);
     }
 
-    public void numberOfBooks() {
+    public void getNumberOfBooks() {
         System.out.println("Numbers of all books - " + (indexBookshelf));
     }
 
-    public void set() {
-        System.out.print("""
-                Write book that you put on the bookshelf with ','\s
-                example: Author,Title,Publish year
-                """);
-        String enteredBook = console.nextLine();
-        String[] elementsOfBook = enteredBook.split(",");
-        String author = elementsOfBook[0];
-        String title = elementsOfBook[1];
-        String publishYear = elementsOfBook[2];
-        Book newBook = new Book(author, title, publishYear);
-        books[indexBookshelf] = newBook;
-        indexBookshelf++;
+    public void addBook() {
+        if (indexBookshelf != 10) {
+            System.out.print("""
+                    Write book that you put on the bookshelf with ','\s
+                    example: Author,Title,Publish year
+                    """);
+            String enteredBook = console.nextLine();
+            String[] elementsOfBook = enteredBook.split(",");
+            String author = elementsOfBook[0];
+            String title = elementsOfBook[1];
+            String publishYear = elementsOfBook[2];
+            Book newBook = new Book(author, title, publishYear);
+            books[indexBookshelf++] = newBook;
+        } else {
+            System.out.println("Bookshelf is overfilled!");
+        }
     }
 
-    public void print() {
+    public void printBooks() {
         Book[] arrayBook = Arrays.copyOf(books, indexBookshelf);
         System.out.print("Bookshelf consist of books: \n");
         for (int i = 0; i < arrayBook.length; i++) {

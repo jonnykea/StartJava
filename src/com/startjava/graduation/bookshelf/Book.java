@@ -1,11 +1,11 @@
 package com.startjava.graduation.bookshelf;
 
 public class Book {
-   private final String author;
-   private final String title;
-   private final String publishYear;
+    private final String author;
+    private final String title;
+    private final String publishYear;
 
-    public Book (String author, String title, String publishYear){
+    public Book(String author, String title, String publishYear) {
         this.author = author;
         this.title = title;
         this.publishYear = publishYear;
@@ -22,7 +22,6 @@ public class Book {
     public String getPublishYear() {
         return publishYear;
     }
-
 
     @Override
     public String toString() {
