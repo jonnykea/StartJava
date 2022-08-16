@@ -7,9 +7,7 @@ public class GuessNumber {
     private final Scanner scanner = new Scanner(System.in);
     private int secretNumber;
     public static final int NUM_OF_GAMES = 3;
-    private int numOfWinner;
     private final Player[] players;
-    private final String[] nameOfWinners = new String[NUM_OF_GAMES];
 
     public GuessNumber(Player... players) {
         this.players = Arrays.copyOf(players, players.length);
@@ -17,23 +15,20 @@ public class GuessNumber {
 
     public void play() {
         System.out.println("\nПобедитель будет выявлен по результатам 3-х игр");
-        initWinners();
-        while (numOfWinner != NUM_OF_GAMES) {
+        init();
+        for (int gameIndex = 0; gameIndex < NUM_OF_GAMES; gameIndex++) {
             secretNumber = (int) (Math.random() * 100) + 1;
             decideByToss();
-            initPlayers();
-            System.out.println("Игра - " + (numOfWinner + 1) + "\nУ каждого игрока по 10 попыток, чтобы отгадать число ");
+            clearAttempts();
+            System.out.println("Игра - " + (gameIndex + 1) + "\nУ каждого игрока по 10 попыток, чтобы отгадать число ");
+            outerLoop:
             while (true) {
-                boolean gameOver = false;
                 for (Player player : players) {
                     if (playTurn(player)) {
-                        nameOfWinners[numOfWinner++] = player.getName();
-                        gameOver = true;
+                        player.setNumOfWins(player.getNumOfWins() + 1);
+                        break outerLoop;
                     }
                     System.out.println("переход хода");
-                }
-                if (gameOver){
-                    break;
                 }
                 if (isNoAttemptLeft()) {
                     System.out.println("Игра окончена ((( попыток больше нет");
@@ -72,7 +67,7 @@ public class GuessNumber {
         player.setGuess(scanner.nextInt());
         boolean isWinner = compareNumber(player.getGuess());
         if (isWinner) {
-            System.out.println("У нас есть победитель!!!");
+            System.out.println("\nУ нас есть победитель!!!");
             System.out.println("Игрок - " + player.getName() + ", угадал число - " + secretNumber + " c, "
                     + player.getCountOfAttempts() + " попытки");
         }
@@ -112,49 +107,30 @@ public class GuessNumber {
         System.arraycopy(temp, 0, players, 0, players.length);
     }
 
-    private void initWinners() {
-        if (numOfWinner == 0) {
-            return;
+    private void clearAttempts() {
+        for (Player player : players) {
+            player.clearAttempts();
         }
-        Arrays.fill(nameOfWinners, 0, numOfWinner - 1, null);
-        numOfWinner = 0;
     }
 
-    private void initPlayers() {
+    private void init() {
         for (Player player : players) {
             player.init();
         }
     }
 
     private void resultOfGames() {
-        String[] distinctWinners = new String[nameOfWinners.length];
-        int[] numOfWins = new int[nameOfWinners.length];
-        int numOfDistinct = 0;
-        for (String name : nameOfWinners) {
-            boolean foundAny = false;
-            for (int i = 0; i < numOfDistinct; i++) {
-                if (name.equals(distinctWinners[i])) {
-                    numOfWins[i]++;
-                    foundAny = true;
-                    break;
-                }
-            }
-            if (!foundAny) {
-                numOfWins[numOfDistinct] = 1;
-                distinctWinners[numOfDistinct++] = name;
-            }
-        }
         boolean haveAbsoluteWinner = false;
-        for (int i = 0; i < numOfWins.length; i++) {
-            if (numOfWins[i] == 2) {
-                System.out.println("\nПо результату 3-х игр \nПобедитель - " + distinctWinners[i]);
+        for (Player p : players) {
+            if (p.getNumOfWins() >= 2) {
+                System.out.println("\nПо результату 3-х игр \nПОБЕДИТЕЛЬ - " + p.getName());
                 haveAbsoluteWinner = true;
             }
         }
         if (!haveAbsoluteWinner) {
-            System.out.println("НИЧЬЯ");
-            for (int i = 0; i < distinctWinners.length; i++) {
-                System.out.println((i + 1) + " игра - " + "победа " + distinctWinners[i]);
+            System.out.println("\nНИЧЬЯ");
+            for (Player p : players) {
+                System.out.println("победа " + p.getName());
             }
         }
     }

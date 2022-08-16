@@ -5,15 +5,23 @@ import java.util.Arrays;
 public class Player {
     public static final int MAX_NUM_OF_ATTEMPTS = 10;
     private final String name;
+    private int numOfWins;
     private int countOfAttempts;
     private final int[] attempts = new int[MAX_NUM_OF_ATTEMPTS];
-
     public Player(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getNumOfWins() {
+        return numOfWins;
+    }
+
+    public void setNumOfWins(int numOfWins) {
+        this.numOfWins = numOfWins;
     }
 
     public int getCountOfAttempts() {
@@ -33,7 +41,12 @@ public class Player {
         }
     }
 
-    public void init() {
+    public void init(){
+        clearAttempts();
+        numOfWins = 0;
+    }
+
+    public void clearAttempts() {
         if (countOfAttempts == 0) {
             return;
         }
