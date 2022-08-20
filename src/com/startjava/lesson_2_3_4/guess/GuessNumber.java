@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class GuessNumber {
     private final Scanner scanner = new Scanner(System.in);
     private int secretNumber;
-    public static final int NUM_OF_GAMES = 3;
+    public static final int ROUNDS = 3;
     private final Player[] players;
 
     public GuessNumber(Player... players) {
@@ -16,19 +16,23 @@ public class GuessNumber {
     public void play() {
         System.out.println("\nПобедитель будет выявлен по результатам 3-х игр");
         init();
-        for (int gameIndex = 0; gameIndex < NUM_OF_GAMES; gameIndex++) {
+        castLots();
+        for (int round = 0; round < ROUNDS; round++) {
             secretNumber = (int) (Math.random() * 100) + 1;
-            decideByToss();
             clearAttempts();
-            System.out.println("Игра - " + (gameIndex + 1) + "\nУ каждого игрока по 10 попыток, чтобы отгадать число ");
-            outerLoop:
+            System.out.println("Игра - " + (round + 1) + "\nУ каждого игрока по 10 попыток, чтобы отгадать число ");
+            boolean gameOver = false;
             while (true) {
                 for (Player player : players) {
-                    if (playTurn(player)) {
-                        player.setNumOfWins(player.getNumOfWins() + 1);
-                        break outerLoop;
+                    if (startGameplay(player)) {
+                        player.setCountWins(player.getCountWins() + 1);
+                        gameOver = true;
+                        break;
                     }
                     System.out.println("переход хода");
+                }
+                if (gameOver) {
+                    break;
                 }
                 if (isNoAttemptLeft()) {
                     System.out.println("Игра окончена ((( попыток больше нет");
@@ -39,17 +43,34 @@ public class GuessNumber {
         resultOfGames();
     }
 
-    private boolean isNoAttemptLeft() {
-        boolean result = true;
+    private void init() {
         for (Player player : players) {
-            result = result && !player.isAttemptsLeft();
+            player.init();
         }
-        return result;
+    }
+
+    private void castLots() {
+        System.out.println("\nСейчас узнаем у кого будет первый ход?!");
+        for (int i = 0; i < players.length; i++) {
+            int randomIndex = (int) (Math.random() * players.length);
+            if (i == randomIndex) {
+                continue;
+            }
+            Player temp = players[i];
+            players[i] = players[randomIndex];
+            players[randomIndex] = temp;
+        }
+    }
+
+    private void clearAttempts() {
+        for (Player player : players) {
+            player.clearAttempts();
+        }
     }
 
     // Returns true if game is ended
-    private boolean playTurn(Player player) {
-        System.out.print("попытка - " + (player.getCountOfAttempts() + 1) + " у " + player.getName());
+    private boolean startGameplay(Player player) {
+        System.out.print("попытка - " + (player.getCountAttempts() + 1) + " у " + player.getName());
         if (isGuessed(player)) {
             for (Player p : players) {
                 System.out.println(p);
@@ -69,7 +90,7 @@ public class GuessNumber {
         if (isWinner) {
             System.out.println("\nУ нас есть победитель!!!");
             System.out.println("Игрок - " + player.getName() + ", угадал число - " + secretNumber + " c, "
-                    + player.getCountOfAttempts() + " попытки");
+                    + player.getCountAttempts() + " попытки");
         }
         return isWinner;
     }
@@ -77,52 +98,24 @@ public class GuessNumber {
     private boolean compareNumber(int guess) {
         if (guess == secretNumber) {
             return true;
-        }
-        if (guess > 0 && guess < 100) {
+        } else {
             System.out.println("компьютер загадал число " + (secretNumber < guess ? "меньше " : "больше ") + guess);
         }
         return false;
     }
 
-    private void decideByToss() {
-        System.out.println("\nСейчас узнаем у кого будет первый ход?!");
-        int index = 0;
-        Player[] temp = new Player[players.length];
-        int[] random = new int[players.length];
-        while (index < players.length) {
-            int randomIndex = (int) (Math.random() * 3);
-            boolean unique = true;
-            for (int j = 0; j < index; j++) {
-                if (random[j] == randomIndex) {
-                    unique = false;
-                    break;
-                }
-            }
-            if (unique) {
-                temp[index] = players[randomIndex];
-                random[index] = randomIndex;
-                index++;
-            }
-        }
-        System.arraycopy(temp, 0, players, 0, players.length);
-    }
-
-    private void clearAttempts() {
+    private boolean isNoAttemptLeft() {
+        boolean result = true;
         for (Player player : players) {
-            player.clearAttempts();
+            result = result && !player.isAttemptsLeft();
         }
-    }
-
-    private void init() {
-        for (Player player : players) {
-            player.init();
-        }
+        return result;
     }
 
     private void resultOfGames() {
         boolean haveAbsoluteWinner = false;
         for (Player p : players) {
-            if (p.getNumOfWins() >= 2) {
+            if (p.getCountWins() >= 2) {
                 System.out.println("\nПо результату 3-х игр \nПОБЕДИТЕЛЬ - " + p.getName());
                 haveAbsoluteWinner = true;
             }
