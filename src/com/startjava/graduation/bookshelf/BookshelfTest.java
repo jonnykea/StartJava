@@ -12,50 +12,75 @@ public class BookshelfTest {
         bookshelfTest.run();
     }
 
-    public void showMenu() {
-        System.out.print("""
-                                
-                Press the number of command for execution:
-                1 - Get a list of books which are on the bookshelf
-                2 - Get the numbers of all books
-                3 - Get free space on the bookshelf
-                4 - Get the book by the title
-                5 - Add the book on the bookshelf
-                6 - Remove the book
-                7 - If you want to leave this program
-                                
-                """);
-    }
-
     public void run() {
-        bookshelf.init();
-        String exit = "false";
         do {
             showMenu();
             printBooks();
-            String item = console.nextLine();
+            int item = Integer.parseInt(console.nextLine());
             switch (item) {
-                case "1" -> printBooks();
-                case "2" -> printNumberOfBooks();
-                case "3" -> printFreeSpace();
-                case "4" -> searchBook();
-                case "5" -> addBook();
-                case "6" -> removeBook();
-                case "7" -> exit = "true";
+                case 1 -> searchBook();
+                case 2 -> removeBook();
+                case 3 -> addBook();
+                case 4 -> printBooks();
+                case 5 -> printNumberOfBooks();
+                case 6 -> printFreeSpace();
+                case 7 -> {
+                    return;
+                }
                 default -> System.out.println("Incorrect command " + item + " available commands : 1,2,3,4,5,6,7");
             }
-        } while (exit.equals("false"));
+        } while (true);
     }
 
-    private void printFreeSpace() {
-        System.out.println("Numbers of empty cells - " + bookshelf.getFreeSpace());
+    public void showMenu() {
+        System.out.print("""                           
+                Press the number of command for execution:
+                1 - Get the book by the title
+                2 - Remove the book
+                3 - Add the book on the bookshelf
+                4 - Get a list of books which are on the bookshelf
+                5 - Get the numbers of all books
+                6 - Get free space on the bookshelf
+                7 - If you want to leave this program                                
+                """);
     }
 
-    private void printNumberOfBooks() {
-        System.out.println("Numbers of all books - " + bookshelf.getNumberOfBooks());
+    private void printBooks() {
+        var books = bookshelf.getBooks();
+        System.out.println("Bookshelf consist of books:");
+        for (int i = 0; i < books.length; i++) {
+            System.out.println("book number - " + (i + 1) + books[i]);
+        }
     }
 
-    private String getInput() {
+    private void searchBook() {
+        System.out.println("""
+                Write title of book that you want to search              
+                """ + EXAMPLE);
+        String title = getInputTittle();
+        Book book = bookshelf.searchBook(title);
+        if (book != null) {
+            System.out.println(book);
+        } else {
+            System.out.println("Book isn't found");
+        }
+    }
+
+    private void removeBook() {
+        System.out.println("""
+                Write title of book that you want to remove
+                example: War and Peace              
+                """);
+        String title = getInputTittle();
+        try {
+            bookshelf.removeBook(title);
+            System.out.println("book with " + title + " is removed");
+        } catch (NullPointerException e) {
+            System.out.println("Unable to delete - " + e.getMessage());
+        }
+    }
+
+    private String getInputTittle() {
         String title;
         do {
             title = console.nextLine().toLowerCase();
@@ -74,15 +99,15 @@ public class BookshelfTest {
             String author;
             String title;
             String publishYear;
-            try {
-                String enteredBook = getInput();
-                String[] elementsOfBook = enteredBook.split(",");
+            String enteredBook = getInputTittle();
+            String[] elementsOfBook = enteredBook.split(",");
+            if (elementsOfBook.length == 3) {
                 author = elementsOfBook[0];
                 title = elementsOfBook[1];
                 publishYear = elementsOfBook[2];
                 Book newBook = new Book(author, title, publishYear);
                 bookshelf.addBook(newBook);
-            } catch (IndexOutOfBoundsException e) {
+            } else {
                 System.out.println("Incorrect data input \n" + EXAMPLE);
             }
         } else {
@@ -90,39 +115,12 @@ public class BookshelfTest {
         }
     }
 
-    private void removeBook() {
-        System.out.println("""
-                Write title of book that you want to remove
-                example: War and Peace              
-                """);
-        String title = getInput();
-        try {
-            bookshelf.removeBook(title);
-            System.out.println("book with " + title + " is removed");
-        } catch (RuntimeException e) {
-            System.out.println("Unable to delete - " + e.getMessage());
-        }
+    private void printNumberOfBooks() {
+        System.out.println("Numbers of all books - " + bookshelf.getNumberOfBooks());
     }
 
-    private void searchBook() {
-        System.out.println("""
-                Write title of book that you want to search              
-                """ + EXAMPLE);
-        String title = getInput();
-        Book book = bookshelf.searchBook(title);
-        if (book != null) {
-            System.out.println(book);
-        } else {
-            System.out.println("Book isn't found");
-        }
-    }
-
-    private void printBooks() {
-        var arrayBook = bookshelf.getBooks();
-        System.out.print("Bookshelf consist of books: \n");
-        for (int i = 0; i < arrayBook.length; i++) {
-            System.out.print("book number - " + (i + 1) + arrayBook[i] + "\n");
-        }
+    private void printFreeSpace() {
+        System.out.println("Numbers of empty cells - " + bookshelf.getFreeSpace());
     }
 }
 

@@ -7,6 +7,9 @@ public class Bookshelf {
     private int indexBookshelf;
     private final Book[] books = new Book[NUM_OF_BOOKS];
 
+    public Bookshelf() {
+        init();
+    }
     public void init() {
         books[indexBookshelf++] = new Book("Pushkin", "Fairy about Saltan's king", "1831");
         books[indexBookshelf++] = new Book("Lermantov", "Mciry", "1839");
@@ -69,7 +72,7 @@ public class Bookshelf {
     public void removeBook(String title) {
         Integer index = getIndexByTitle(title);
         if (index == null) {
-            throw new RuntimeException("Book isn't found");
+            throw new NullPointerException("Book isn't found");
         }
         books[index] = null;
         indexBookshelf--;
