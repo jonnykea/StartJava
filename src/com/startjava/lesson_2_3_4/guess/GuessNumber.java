@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class GuessNumber {
     private final Scanner scanner = new Scanner(System.in);
     private int secretNumber;
-    public static final int ROUNDS = 3;
+    private static final int ROUNDS = 3;
     private final Player[] players;
 
     public GuessNumber(Player... players) {
@@ -21,18 +21,15 @@ public class GuessNumber {
             secretNumber = (int) (Math.random() * 100) + 1;
             clearAttempts();
             System.out.println("Игра - " + (round + 1) + "\nУ каждого игрока по 10 попыток, чтобы отгадать число ");
-            boolean gameOver = false;
-            while (true) {
+            boolean guessed = false;
+            while (!guessed) {
                 for (Player player : players) {
                     if (startGameplay(player)) {
                         player.setCountWins(player.getCountWins() + 1);
-                        gameOver = true;
+                        guessed = true;
                         break;
                     }
                     System.out.println("переход хода");
-                }
-                if (gameOver) {
-                    break;
                 }
                 if (isNoAttemptLeft()) {
                     System.out.println("Игра окончена ((( попыток больше нет");
@@ -40,7 +37,7 @@ public class GuessNumber {
                 }
             }
         }
-        resultOfGames();
+        findWinner();
     }
 
     private void init() {
@@ -77,7 +74,7 @@ public class GuessNumber {
             }
             return true;
         }
-        if (!player.isAttemptsLeft()) {
+        if (!player.hasAttempts()) {
             System.out.println("У " + player.getName() + " закончились попытки");
         }
         return false;
@@ -86,33 +83,32 @@ public class GuessNumber {
     private boolean isGuessed(Player player) {
         System.out.print("\n" + player.getName() + " - угадайте значение, которое загадал компьютер от 1 до 100 -?  ");
         player.setGuess(scanner.nextInt());
-        boolean isWinner = compareNumber(player.getGuess());
-        if (isWinner) {
+        boolean guessed = compareNumber(player.getGuess());
+        if (guessed) {
             System.out.println("\nУ нас есть победитель!!!");
             System.out.println("Игрок - " + player.getName() + ", угадал число - " + secretNumber + " c, "
                     + player.getCountAttempts() + " попытки");
         }
-        return isWinner;
+        return guessed;
     }
 
     private boolean compareNumber(int guess) {
         if (guess == secretNumber) {
             return true;
-        } else {
-            System.out.println("компьютер загадал число " + (secretNumber < guess ? "меньше " : "больше ") + guess);
         }
+        System.out.println("компьютер загадал число " + (secretNumber < guess ? "меньше " : "больше ") + guess);
         return false;
     }
 
     private boolean isNoAttemptLeft() {
         boolean result = true;
         for (Player player : players) {
-            result = result && !player.isAttemptsLeft();
+            result = result && !player.hasAttempts();
         }
         return result;
     }
 
-    private void resultOfGames() {
+    private void findWinner() {
         boolean haveAbsoluteWinner = false;
         for (Player p : players) {
             if (p.getCountWins() >= 2) {

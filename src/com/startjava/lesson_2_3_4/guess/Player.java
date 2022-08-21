@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Arrays;
 
 public class Player {
-    public static final int MAX_NUM_ATTEMPTS = 10;
+    private static final int MAX_NUM_ATTEMPTS = 10;
     private final String name;
     private int countWins;
     private int countAttempts;
@@ -55,7 +55,7 @@ public class Player {
         countAttempts = 0;
     }
 
-    public boolean isAttemptsLeft() {
+    public boolean hasAttempts() {
         return countAttempts < MAX_NUM_ATTEMPTS;
     }
 
