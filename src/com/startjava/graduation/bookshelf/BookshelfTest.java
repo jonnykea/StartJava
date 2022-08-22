@@ -21,13 +21,12 @@ public class BookshelfTest {
                 case 1 -> searchBook();
                 case 2 -> removeBook();
                 case 3 -> addBook();
-                case 4 -> printBooks();
-                case 5 -> printNumberOfBooks();
-                case 6 -> printFreeSpace();
-                case 7 -> {
+                case 4 -> printNumberOfBooks();
+                case 5 -> printFreeSpace();
+                case 6 -> {
                     return;
                 }
-                default -> System.out.println("Incorrect command " + item + " available commands : 1,2,3,4,5,6,7");
+                default -> System.out.println("Incorrect command " + item + " available commands : 1,2,3,4,5,6");
             }
         } while (true);
     }
@@ -38,10 +37,9 @@ public class BookshelfTest {
                 1 - Get the book by the title
                 2 - Remove the book
                 3 - Add the book on the bookshelf
-                4 - Get a list of books which are on the bookshelf
-                5 - Get the numbers of all books
-                6 - Get free space on the bookshelf
-                7 - If you want to leave this program                                
+                4 - Get the numbers of all books
+                5 - Get free space on the bookshelf
+                6 - If you want to leave this program                                
                 """);
     }
 
@@ -75,7 +73,7 @@ public class BookshelfTest {
         try {
             bookshelf.removeBook(title);
             System.out.println("book with " + title + " is removed");
-        } catch (NullPointerException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println("Unable to delete - " + e.getMessage());
         }
     }
@@ -96,15 +94,12 @@ public class BookshelfTest {
             System.out.println("""
                     Write book that you put on the bookshelf with ','
                     """ + EXAMPLE);
-            String author;
-            String title;
-            String publishYear;
             String enteredBook = getInputTittle();
             String[] elementsOfBook = enteredBook.split(",");
             if (elementsOfBook.length == 3) {
-                author = elementsOfBook[0];
-                title = elementsOfBook[1];
-                publishYear = elementsOfBook[2];
+                String author = elementsOfBook[0];
+                String title = elementsOfBook[1];
+                String publishYear = elementsOfBook[2];
                 Book newBook = new Book(author, title, publishYear);
                 bookshelf.addBook(newBook);
             } else {

@@ -48,14 +48,16 @@ public class GuessNumber {
 
     private void castLots() {
         System.out.println("\nСейчас узнаем у кого будет первый ход?!");
-        for (int i = 0; i < players.length; i++) {
-            int randomIndex = (int) (Math.random() * players.length);
+        int length = players.length;
+        for (int i = length; i > 0; i--) {
+            int randomIndex = (int) (Math.random() * length);
             if (i == randomIndex) {
                 continue;
             }
             Player temp = players[i];
             players[i] = players[randomIndex];
             players[randomIndex] = temp;
+            length--;
         }
     }
 
