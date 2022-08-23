@@ -25,7 +25,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "   Author - " + author + ", " + "title - " + title + ", " +
-                "published in " + publishYear;
+        return "(Author - " + author + ", " + "title - " + title + ", " +
+                "published in " + publishYear + ")";
     }
 }

@@ -8,10 +8,6 @@ public class Bookshelf {
     private final Book[] books = new Book[NUM_OF_BOOKS];
 
     public Bookshelf() {
-        init();
-    }
-
-    public void init() {
         books[bookCount++] = new Book("Pushkin", "Fairy about Saltan's king", "1831");
         books[bookCount++] = new Book("Lermantov", "Mciry", "1839");
         books[bookCount++] = new Book("Jack London", "White Hang", "1906");
@@ -31,10 +27,7 @@ public class Bookshelf {
     }
 
     private int findIndex(String title) {
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] == null) {
-                continue;
-            }
+        for (int i = 0; i < bookCount; i++) {
             if (title.equals(books[i].getTitle().toLowerCase())) {
                 return i;
             }
@@ -47,27 +40,13 @@ public class Bookshelf {
         if (index < 0) {
             throw new IllegalArgumentException("Book isn't found");
         }
-        books[index] = null;
         bookCount--;
-        actualize();
-    }
-
-    private void actualize() {
-        for (int i = 0; i <= bookCount; i++) {
-            if (books[i] == null) {
-                books[i] = books[i + 1];
-                books[i + 1] = null;
-            }
-        }
-        System.arraycopy(books, 0, books, 0, bookCount);
+        System.arraycopy(books, index + 1, books, index, bookCount - index);
+        books[bookCount] = null;
     }
 
     public void addBook(Book newBook) {
-        if (!isFull()) {
-            books[bookCount++] = newBook;
-        } else {
-            throw new NumberFormatException("Bookshelf is overfilled!");
-        }
+        books[bookCount++] = newBook;
     }
 
     public boolean isFull() {
@@ -82,5 +61,3 @@ public class Bookshelf {
         return NUM_OF_BOOKS - bookCount;
     }
 }
-
-

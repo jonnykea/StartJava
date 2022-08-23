@@ -1,6 +1,7 @@
 package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GuessNumber {
@@ -48,16 +49,12 @@ public class GuessNumber {
 
     private void castLots() {
         System.out.println("\nСейчас узнаем у кого будет первый ход?!");
-        int length = players.length;
-        for (int i = length; i > 0; i--) {
-            int randomIndex = (int) (Math.random() * length);
-            if (i == randomIndex) {
-                continue;
-            }
+        Random r = new Random();
+        for (int i = players.length - 1; i > 0; i--) {
+            int j = r.nextInt(i + 1);
             Player temp = players[i];
-            players[i] = players[randomIndex];
-            players[randomIndex] = temp;
-            length--;
+            players[i] = players[j];
+            players[j] = temp;
         }
     }
 

@@ -1,5 +1,7 @@
 package com.startjava.graduation.bookshelf;
 
+import com.startjava.lesson_2_3_4.calculator.Calculator;
+
 import java.util.Scanner;
 
 public class BookshelfTest {
@@ -14,19 +16,23 @@ public class BookshelfTest {
 
     public void run() {
         do {
-            showMenu();
             printBooks();
-            int item = Integer.parseInt(console.nextLine());
-            switch (item) {
-                case 1 -> searchBook();
-                case 2 -> removeBook();
-                case 3 -> addBook();
-                case 4 -> printNumberOfBooks();
-                case 5 -> printFreeSpace();
-                case 6 -> {
-                    return;
+            showMenu();
+            try {
+                int item = Integer.parseInt(console.nextLine());
+                switch (item) {
+                    case 1 -> searchBook();
+                    case 2 -> removeBook();
+                    case 3 -> addBook();
+                    case 4 -> printNumberOfBooks();
+                    case 5 -> printFreeSpace();
+                    case 6 -> {
+                        return;
+                    }
+                    default -> System.out.println("Incorrect command - " + item + " available commands : 1,2,3,4,5,6");
                 }
-                default -> System.out.println("Incorrect command " + item + " available commands : 1,2,3,4,5,6");
+            } catch (IllegalArgumentException e) {
+                System.out.println("Incorrect command - available commands : 1,2,3,4,5,6");
             }
         } while (true);
     }
@@ -47,14 +53,15 @@ public class BookshelfTest {
         var books = bookshelf.getBooks();
         System.out.println("Bookshelf consist of books:");
         for (int i = 0; i < books.length; i++) {
-            System.out.println("book number - " + (i + 1) + books[i]);
+            System.out.println((i + 1) + " - " + books[i]);
         }
     }
 
     private void searchBook() {
         System.out.println("""
-                Write title of book that you want to search              
-                """ + EXAMPLE);
+                Write title of book that you want to search  
+                "example: Title          
+                """);
         String title = getInputTittle();
         Book book = bookshelf.searchBook(title);
         if (book != null) {
