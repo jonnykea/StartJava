@@ -1,7 +1,5 @@
 package com.startjava.graduation.bookshelf;
 
-import com.startjava.lesson_2_3_4.calculator.Calculator;
-
 import java.util.Scanner;
 
 public class BookshelfTest {
@@ -16,8 +14,8 @@ public class BookshelfTest {
 
     public void run() {
         do {
-            printBooks();
             showMenu();
+            printBooks();
             try {
                 int item = Integer.parseInt(console.nextLine());
                 switch (item) {
@@ -37,7 +35,7 @@ public class BookshelfTest {
         } while (true);
     }
 
-    public void showMenu() {
+    private void showMenu() {
         System.out.print("""                           
                 Press the number of command for execution:
                 1 - Get the book by the title
@@ -85,17 +83,6 @@ public class BookshelfTest {
         }
     }
 
-    private String getInputTittle() {
-        String title;
-        do {
-            title = console.nextLine().toLowerCase();
-            if (title.isEmpty()) {
-                System.out.println("Incorrect data input");
-            }
-        } while (title.isEmpty());
-        return title;
-    }
-
     private void addBook() {
         if (!bookshelf.isFull()) {
             System.out.println("""
@@ -115,6 +102,17 @@ public class BookshelfTest {
         } else {
             System.out.println("Bookshelf is overfilled!");
         }
+    }
+
+    private String getInputTittle() {
+        String title;
+        do {
+            title = console.nextLine().toLowerCase();
+            if (title.isEmpty()) {
+                System.out.println("Incorrect data input");
+            }
+        } while (title.isEmpty());
+        return title;
     }
 
     private void printNumberOfBooks() {

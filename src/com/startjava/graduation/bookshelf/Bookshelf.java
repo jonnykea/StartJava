@@ -26,15 +26,6 @@ public class Bookshelf {
         return null;
     }
 
-    private int findIndex(String title) {
-        for (int i = 0; i < bookCount; i++) {
-            if (title.equals(books[i].getTitle().toLowerCase())) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     public void removeBook(String title) {
         int index = findIndex(title);
         if (index < 0) {
@@ -49,15 +40,24 @@ public class Bookshelf {
         books[bookCount++] = newBook;
     }
 
-    public boolean isFull() {
-        return bookCount >= 10;
-    }
-
     public int getNumberOfBooks() {
         return bookCount;
     }
 
     public int getFreeSpace() {
         return NUM_OF_BOOKS - bookCount;
+    }
+
+    public boolean isFull() {
+        return bookCount >= 10;
+    }
+
+    private int findIndex(String title) {
+        for (int i = 0; i < bookCount; i++) {
+            if (title.equals(books[i].getTitle().toLowerCase())) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
