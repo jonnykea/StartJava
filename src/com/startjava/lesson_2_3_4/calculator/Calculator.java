@@ -5,6 +5,9 @@ public class Calculator {
         String[] partsExpression = expression.split(" ");
         int a;
         int b;
+        if (partsExpression.length != 3) {
+            throw new NumberFormatException("Не корректный ввод");
+        }
         try {
             a = Integer.parseInt(partsExpression[0]);
             b = Integer.parseInt(partsExpression[2]);
