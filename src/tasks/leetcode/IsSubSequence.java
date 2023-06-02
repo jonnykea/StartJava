@@ -1,6 +1,6 @@
-package tasks;
+package tasks.leetcode;
 
-public class Check {
+public class IsSubSequence {
     public static void main(String[] args) {
         String s;
         String t;

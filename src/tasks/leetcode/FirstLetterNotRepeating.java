@@ -1,9 +1,9 @@
-package tasks;
+package tasks.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class MaxCheck {
+public class FirstLetterNotRepeating {
     public static void main(String[] args) {
         System.out.println("check with array O(n^2)");
         System.out.println(returnNonRepeatingIndexWithArray("leetcode"));
