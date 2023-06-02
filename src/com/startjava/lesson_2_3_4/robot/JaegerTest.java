@@ -3,7 +3,7 @@ package com.startjava.lesson_2_3_4.robot;
 public class JaegerTest {
     public static void main(String[] args) {
         Jaeger firstRobot = new Jaeger("Shanghai Shield", "Victoriya Malikova",
-                "Amara Naman", "Mark - 5", "Destroyed", 232, 2128, 5);
+                "Amara Naman", "Mark - 5", "Destroyed", 280, 2128, 5);
         Jaeger secondRobot = new Jaeger();
         secondRobot.setModelName("Cherno Alpha");
         secondRobot.setFirstPilotName("Sasha Kaidonovsky");
@@ -26,5 +26,10 @@ public class JaegerTest {
             secondRobot.setSecondPilotName("Alex Marinin");
         }
         System.out.println("\noverride name of second pilot - " +secondRobot.getSecondPilotName());
+
+
+        System.out.println(firstRobot.hashCode());
+        System.out.println(secondRobot.hashCode());
+
     }
 }
