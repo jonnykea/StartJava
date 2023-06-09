@@ -64,9 +64,7 @@ public class SmallestLetter {
         int end = letters.length - 1;
         while (start <= end) {
             int mid = start + (end - start) / 2;
-            if (letters[mid] == target) {
-                start = mid + 1;
-            } else if (target > letters[mid]) {
+            if (target >= letters[mid]) {
                 start = mid + 1;
             } else if (letters[mid] > target) {
                 res = letters[mid];
