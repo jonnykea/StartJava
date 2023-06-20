@@ -31,6 +31,7 @@ public class MainStream {
                 "One", 1);
 
         Map<String, Integer> newMap = sorted(nonSortedMap);
+
         sorted(nonSortedMap).entrySet().forEach(System.out::println);
 
         sortedWithPrint(nonSortedMap);

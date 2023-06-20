@@ -14,7 +14,7 @@ public class MainFile {
         } catch (IOException e) {
             throw new RuntimeException("Error", e);
         }
-        File dir = new File("./src/com/urise/webapp");
+        File dir = new File("./src/com");
         System.out.println(dir.isDirectory());
         String[] list = dir.list();
 
@@ -30,24 +30,22 @@ public class MainFile {
             throw new RuntimeException(e);
         }
 
-        printAllFiles(filePath, dir, 0);
-/*        System.out.println(calculate(3, 3));
-        System.out.println(power(3, 3));*/
+        printAllFiles(dir, 0);
+        System.out.println(calculate(3, 3));
+        System.out.println(power(3, 3));
     }
 
 
-    private static void printAllFiles(String filePath, File dir, int indent) {
-        if (filePath == null) {
-            return;
-        }
+    private static void printAllFiles(File dir, int indent) {
         File[] files = dir.listFiles();
+        assert files != null;
         for (File element : files) {
             for (int i = 0; i < indent; i++) {
                 System.out.print("    ");
             }
             if (element.isDirectory()) {
                 System.out.println("Directory: " + element.getName());
-                printAllFiles(filePath, element, indent + 1);
+                printAllFiles(element, indent + 1);
             } else {
                 System.out.println("FileName " + element.getName());
             }
@@ -83,11 +81,11 @@ public class MainFile {
         if (x == 0) {
             return 0;
         }
-        return power(x, n) / n;
+        return power(x, n);
     }
 
     private static double power(int x, int n) {
         if (n == 1) return x;
-        return x * calculate(x, n - 1);
+        return x * power(x, n - 1);
     }
 }

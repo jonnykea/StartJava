@@ -62,7 +62,7 @@ public class SmallestLetter {
         char res = letters[0];
         int start = 0;
         int end = letters.length - 1;
-        while (start <= end) {
+        while (start != end) {
             int mid = start + (end - start) / 2;
             if (target >= letters[mid]) {
                 start = mid + 1;

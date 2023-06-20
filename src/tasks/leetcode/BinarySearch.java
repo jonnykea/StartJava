@@ -1,7 +1,31 @@
 package tasks.leetcode;
 
-public class BinarySearch {
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+public final class BinarySearch {
+    public static final String UUID_1 = "uuid1";
+    final Integer digit = 555;
+    Integer num = digit;
     public static void main(String[] args) {
+
+
+        Set<String> stringSet = new TreeSet<>();
+
+        // Добавляем несколько элементов в set
+        stringSet.add("Jan");
+        stringSet.add("Feb");
+        stringSet.add("March");
+        stringSet.add("April");
+        System.out.println(stringSet);
+        stringSet.remove("April");
+        System.out.println(stringSet);
+
+        if (stringSet.contains("March")) {
+            System.out.println("The set contains the element 'March'");
+        }
+
         int highRange = 100;
         int lowRange = 1;
         int choicePlayer = lowRange + (highRange - lowRange) / 2;
