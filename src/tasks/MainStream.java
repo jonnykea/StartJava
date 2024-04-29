@@ -34,7 +34,7 @@ public class MainStream {
 
         sorted(nonSortedMap).entrySet().forEach(System.out::println);
 
-        sortedWithPrint(nonSortedMap);
+        //sortedWithPrint(nonSortedMap);
     }
 
 
@@ -74,12 +74,12 @@ public class MainStream {
     static Map<String, Integer> sorted(Map<String, Integer> nonSorted) {
         return nonSorted.entrySet()
                 .stream()
-                .sorted(Map.Entry.comparingByValue())
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                 .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        Map.Entry::getValue,
+                        stringIntegerEntry -> stringIntegerEntry.getKey(),
+                        stringIntegerEntry1 -> stringIntegerEntry1.getValue(),
                         (first, conflict) -> first,
-                        LinkedHashMap::new
+                        () -> new LinkedHashMap<String, Integer>()
                 ));
     }
          /* .collect(Collectors.toMap(

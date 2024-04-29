@@ -2,6 +2,7 @@ package tasks.leetcode;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class RomanToInteger {
     public static void main(String[] args) {
@@ -9,17 +10,23 @@ public class RomanToInteger {
         String s = "III";
         System.out.println(romanToInt(s));
         System.out.println(romanToInt2(s));
-        System.out.println(romanToInt3(s) + "\n");
+        System.out.println(romanToInt3(s));
+        System.out.println(romanToIntTreeMapWithRecurcive(3));
+        System.out.println(romanToIntMapSimply(3) + "\n");
 
         s = "LVIII";
         System.out.println(romanToInt(s));
         System.out.println(romanToInt2(s));
-        System.out.println(romanToInt3(s) + "\n");
+        System.out.println(romanToInt3(s));
+        System.out.println(romanToIntTreeMapWithRecurcive(58));
+        System.out.println(romanToIntMapSimply(58) + "\n");
 
         s = "MCMXCIV";
         System.out.println(romanToInt(s));
         System.out.println(romanToInt2(s));
         System.out.println(romanToInt3(s));
+        System.out.println(romanToIntTreeMapWithRecurcive(1994));
+        System.out.println(romanToIntMapSimply(1994));
     }
 
     static public int romanToInt(String source) {
@@ -101,5 +108,74 @@ public class RomanToInteger {
             }
         }
         return result;
+    }
+
+
+    public static String romanToIntTreeMapWithRecurcive(int num) {
+        final TreeMap<Integer, String> INT_TO_ROMANS_PARTS = new TreeMap<>();
+        INT_TO_ROMANS_PARTS.put(1, "I");
+        INT_TO_ROMANS_PARTS.put(2, "II");
+        INT_TO_ROMANS_PARTS.put(3, "III");
+        INT_TO_ROMANS_PARTS.put(4, "IV");
+        INT_TO_ROMANS_PARTS.put(5, "V");
+        INT_TO_ROMANS_PARTS.put(6, "VI");
+        INT_TO_ROMANS_PARTS.put(7, "VII");
+        INT_TO_ROMANS_PARTS.put(8, "VIII");
+        INT_TO_ROMANS_PARTS.put(10, "X");
+        INT_TO_ROMANS_PARTS.put(50, "L");
+        INT_TO_ROMANS_PARTS.put(90, "XC");
+        INT_TO_ROMANS_PARTS.put(100, "C");
+        INT_TO_ROMANS_PARTS.put(400, "CD");
+        INT_TO_ROMANS_PARTS.put(500, "D");
+        INT_TO_ROMANS_PARTS.put(900, "CM");
+        INT_TO_ROMANS_PARTS.put(1000, "M");
+
+        Map.Entry<Integer, String> entry = INT_TO_ROMANS_PARTS.floorEntry(num);
+        if (entry.getKey().equals(num)) {
+            return entry.getValue();
+        }
+
+        return entry.getValue() + romanToIntTreeMapWithRecurcive(num - entry.getKey());
+    }
+
+    public static String romanToIntMapSimply(int num) {
+        final Map<Integer, String> INT_TO_ROMANS_PARTS = new HashMap<>();
+
+            INT_TO_ROMANS_PARTS.put(0, "");
+            INT_TO_ROMANS_PARTS.put(1, "I");
+            INT_TO_ROMANS_PARTS.put(2, "II");
+            INT_TO_ROMANS_PARTS.put(3, "III");
+            INT_TO_ROMANS_PARTS.put(4, "IV");
+            INT_TO_ROMANS_PARTS.put(5, "V");
+            INT_TO_ROMANS_PARTS.put(6, "VI");
+            INT_TO_ROMANS_PARTS.put(7, "VII");
+            INT_TO_ROMANS_PARTS.put(8, "VIII");
+            INT_TO_ROMANS_PARTS.put(10, "X");
+            INT_TO_ROMANS_PARTS.put(50, "L");
+            INT_TO_ROMANS_PARTS.put(60, "LX");
+            INT_TO_ROMANS_PARTS.put(70, "LXX");
+            INT_TO_ROMANS_PARTS.put(80, "LXXX");
+            INT_TO_ROMANS_PARTS.put(90, "XC");
+            INT_TO_ROMANS_PARTS.put(100, "C");
+            INT_TO_ROMANS_PARTS.put(400, "CD");
+            INT_TO_ROMANS_PARTS.put(500, "D");
+            INT_TO_ROMANS_PARTS.put(600, "DC");
+            INT_TO_ROMANS_PARTS.put(700, "DCC");
+            INT_TO_ROMANS_PARTS.put(800, "DCCC");
+            INT_TO_ROMANS_PARTS.put(900, "CM");
+            INT_TO_ROMANS_PARTS.put(1000, "M");
+            INT_TO_ROMANS_PARTS.put(2000, "MM");
+            INT_TO_ROMANS_PARTS.put(3000, "MMM");
+
+
+        int i = num % 10;
+        int x = num % 100 - i;
+        int c = num % 1000 - (x + i);
+        int m = num % 10000 - (c + x + i);
+
+        return INT_TO_ROMANS_PARTS.get(m) +
+                INT_TO_ROMANS_PARTS.get(c) +
+                INT_TO_ROMANS_PARTS.get(x) +
+                INT_TO_ROMANS_PARTS.get(i);
     }
 }
